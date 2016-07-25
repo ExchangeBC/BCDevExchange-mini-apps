@@ -35,3 +35,23 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+node_modules
+public
+.tmp
+.idea/
+client/bower_components
+dist
+/server/config/local.env.js
+mongod
+data/
+/config/local.json
+npm-debug.log
+log/
+temp/
+.project
+.svn
+config/.svn
+config/nginx
+/nbproject/private/
+bower_components

@@ -1,0 +1,97 @@
+<!--
+Copyright 2015 Province of British Columbia
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+-->
+
+<div class="container" ng-controller="LabUserInstCtrl">
+  <div class="row page-header">
+    <div class="col-sm-12">
+      <h1>Your Namespaces</h1>
+    </div>
+  </div>
+  <div class="resource-list row">
+    <div class="col-sm-12">
+      <form>
+        <div class="form-inline">
+          <div class="form-group">
+            <label class="sr-only" for="query_search">Search for keywords</label>
+            <input type="text" placeholder="Search for keywords" class="form-control" id="query_search" ng-model="query" />
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span ng-show="!predicateTitle">Sort by</span><span class="source-name" ng-bind="predicateTitle"></span> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="" ng-click="predicate = 'name'; predicateTitle = 'Name A-Z'">Name A-Z</a></li>
+                <li><a href="" ng-click="predicate = '-name'; predicateTitle = 'Name Z-A'">Name Z-A</a></li>
+              </ul>
+            </div>
+            <input type="reset" class="btn btn-default" value="Reset" ng-click="selectedSource = ''; selectedSourceTitle = ''; query = ''; predicate = ''; predicateTitle = '';" />
+          </div>
+          <div class="clearfix">
+            <ng-pluralize class="pull-left" ng-show="filtered.length > 0" count="filtered.length"
+                          when="{'0': '',
+                          '1': '1 result',
+                          'other': '{{filtered.length}} results'}">
+            </ng-pluralize>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-12">
+      <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)"><span ng-bind-html="alert.msg"></span></alert>
+    </div>
+    <div class="col-sm-12">
+      <ul class="resource-list list-unstyled table-bordered">
+        <span us-spinner="{radius:30, width:6, length: 18}" spinner-key="spinner-instances" spinner-start-active="true"></span>
+        <li class="resource" ng-repeat="labInstance in filtered = (labInstances| filter:query | orderBy: (predicate||'-labRequestStatus'))">
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="row"><div class="col-xs-4">Name:</div> <div class="col-xs-8" ng-bind-html="labInstance.name | highlight:query"></div></div>
+              <div class="row"><div class="col-xs-4">Lab Url:</div> <a class="col-xs-8" ng-bind-html="'https://lab-'+(labInstance.name | highlight:query)+'.bcdevexchange.org'" target="_blank" ng-attr-href="{{'https://lab-'+labInstance.name+'.bcdevexchange.org'}}"></a></div>
+              <div ng-if="labInstance.type === 'labInstance'">
+                <div class="row"><div class="col-xs-4">GitHub Repo:</div> <div class="col-xs-8" ng-bind-html="(labInstance.githubRepoOwner + '/' + labInstance.githubRepo) | highlight:query"></div></div>
+                <div class="row"><div class="col-xs-4">Git Branch:</div> <div class="col-xs-8" ng-bind-html="labInstance.gitBranch | highlight:query"></div></div>
+                <div class="row"><div class="col-xs-4">Dockerfile Path:</div> <div class="col-xs-8" ng-bind-html="labInstance.dockerfilePath | highlight:query"></div></div>
+                <div class="row"><div class="col-xs-4">Published Docker Port:</div> <div class="col-xs-8" ng-bind-html="labInstance.dockerPort | highlight:query"></div></div>
+              </div>
+              <div ng-if="labInstance.type === 'proxy'">
+                <div class="row"><div class="col-xs-4">Proxied Site Url:</div> <a class="col-xs-8" ng-bind-html="labInstance.siteUrl | highlight:query" target="_blank" ng-attr-href="{{labInstance.siteUrl}}"></a></div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-primary btn-block" ng-click="editInstance(labInstance)">Edit</button>
+              <button class="btn btn-danger btn-block" ng-click="delete(labInstance)">Delete</button>
+            </div>
+          </div>
+        </li>
+        <li ng-show="filtered.length == 0 && dataLoaded && query" class="empty">
+          <div class="col-md-12">
+            No results for "{{ query}}".
+          </div>
+        </li>
+        <li ng-show="labInstances.length == 0 && instancesLoaded" class="empty">
+          <div class="col-md-12">
+            No instances available.
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-12">
+      <button class="btn btn-primary" ng-click="editInstance()">Create New Namespace</button>
+    </div>
+  </div>
+</div>
+<style type = "text/css" scoped>
+  .container{
+    width: 95%;
+  }
+</style>
