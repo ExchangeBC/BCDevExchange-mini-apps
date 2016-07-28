@@ -1,0 +1,377 @@
+// COLORS
+$main-bg-color: #ECECEC;
+$text-color: #7A7A7A;
+$text-color-nav: #aaaaaa;
+$accent-color: #009688;
+$warning-color: #f6f6f6;
+$widget-accent: #00796B;
+$widget-width: 250px;
+
+// VARIABLES
+$left-sidenav-width: 200px;
+$right-sidenav-width: 250px;
+$proj-height: 150px;
+$proj-width: 200px;
+$font-weight-bold: 600;
+$font-size-large: 22px;
+
+// LAYOUT
+project-card {
+  min-height: $proj-height;
+  width: $proj-width;
+  word-break: break-word;
+}
+
+body {
+  color: $text-color;
+
+}
+
+a {
+  color: $accent-color;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer {
+  background: rgba(0, 0, 0, 0.38);
+  height: 2em;
+}
+
+.white-background{
+  background-color: white;
+}
+
+.toolbar-button {
+  min-width: 20px;
+}
+
+.share-label {
+  vert-align: middle;
+  margin-left: 10px;
+}
+
+.page-content {
+  background-color: $main-bg-color;
+}
+
+.page-content-teal {
+  background-color: $accent-color;
+}
+
+.widget-progress {
+  width: 95% !important;
+  margin-left: 10px;
+}
+
+// UTILS
+.capitalize {
+  text-transform: capitalize;
+}
+
+.orig-case {
+  text-transform: none;
+}
+
+.img-circle {
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+// COMPONENTS
+.messages {
+  position: relative;
+
+  &-content {
+    height: 100%;
+  }
+}
+
+.notifications-label {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 12px;
+  top: 2px;
+  right: 2px;
+  background-color: $warning-color;
+
+  &-issues {
+
+    //width: 25px;
+    border-radius: 25%;
+    font-size: 12px;
+    background-color: $widget-accent;
+    color: white;
+  }
+}
+
+// dash-widget
+.dash-widget {
+  background-color: white;
+
+  &-topbar {
+    background-color: $widget-accent;
+  }
+
+  &-topbar-text {
+    color: $warning-color;
+  }
+
+  &-topbar-text-disabled {
+    color: $text-color-nav;
+  }
+
+  &-text {
+    color: dimgray;
+  }
+
+  &-font {
+    color: $widget-accent;
+  }
+
+  &-status {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 10%;
+    border-color: teal;
+    color: teal;
+  }
+
+}
+
+// panel-widget
+.panel-widget {
+  width: $widget-width;
+  min-height: 200px;
+  background-color: white;
+
+  &-toolbar {
+    box-shadow: none;
+    margin: 0;
+  }
+
+  &-tittle {
+    color: $text-color;
+  }
+}
+
+.options {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.options.ng-hide {
+  opacity: 0;
+}
+
+
+// charts
+.donut-chart-title {
+  text-align: center;
+}
+
+.custom-tooltip {
+  font-size: $font-size-large;
+  color: $text-color;
+  text-align: center;
+}
+
+// OVERRIDES
+// angular material overrides
+
+.logo-box {
+  width: $left-sidenav-width;
+  background: white;
+  cursor: pointer;
+}
+
+md-radio-group {
+  border: none;
+}
+
+md-icon {
+  height: auto;
+}
+
+md-sidenav.md-locked-open.md-sidenav-left {
+  width: $left-sidenav-width;
+  min-width: $left-sidenav-width;
+  max-width: $left-sidenav-width;
+}
+
+md-sidenav.md-locked-open.md-sidenav-right {
+  width: $right-sidenav-width;
+  min-width: $right-sidenav-width;
+  max-width: $right-sidenav-width;
+}
+
+md-sidenav {
+  color: $text-color-nav;
+}
+
+a.md-button.md-warn.md-raised, a.md-button.md-warn.md-fab, .md-button.md-warn.md-raised, .md-button.md-warn.md-fab {
+  color: white;
+}
+
+md-radio-button.md-accent.md-checked .md-label span {
+  color: $accent-color;
+}
+
+md-toolbar h1 {
+  font-size: $font-size-large;
+}
+
+md-toolbar .md-menu {
+  margin: 0;
+  color: $text-color;
+
+}
+
+md-backdrop.md-sidenav-backdrop {
+  position: fixed;
+}
+
+// libs overrides
+.material-icons {
+  vertical-align: middle;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.nvd3.nv-pie .nv-pie-title {
+  fill: rgb(68, 68, 68);
+  font-weight: $font-weight-bold;
+  font-size: $font-size-large !important;
+}
+
+.nvtooltip {
+  background-color: transparent;
+  border: none;
+  font-weight: $font-weight-bold;
+}
+
+.orange .md-bar2 {
+  background-color: orange;
+}
+
+.orange .md-container {
+  background-color: rgb(255, 236, 201)
+}
+
+.sb-logo {
+  content: url("../images/stacky500b.png");
+  margin: auto 5px;
+}
+
+.sb-logo.detail {
+  content: url("../images/stacky500p.png");
+}
+
+.issues-widget-detail {
+  content: url("../images/Issues_widget.PNG");
+}
+
+.issue-label {
+  height: 3em;
+  width: .4em;
+
+  &-border {
+    border: 1px solid #dddddd;
+  }
+}
+
+.leftnav-color-indent {
+
+  &-item{
+    background-color: gray;
+    width: 8px;
+  }
+
+  &-sub {
+    background-color: lightgray;
+    width: 8px;
+  }
+
+}
+
+
+.commits-widget-detail {
+  content: url("../images/Commits_widget.PNG");
+}
+
+.contributors-widget-detail {
+  content: url("../images/Contributors_widget.PNG");
+}
+
+.branches-widget-detail {
+  content: url("../images/Branches_widget.PNG");
+}
+
+.noWidgets {
+  content: url("../images/no widgets.jpg");
+}
+
+.sb-18px {
+  width: 18px;
+  height: 18px;
+}
+
+.sb-24px {
+  width: 24px;
+  height: 24px;
+}
+
+.sb-36px {
+  width: 36px;
+  height: 36px;
+}
+
+.sb-48px {
+  width: 48px;
+  height: 48px;
+}
+
+.message-wrap {
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 3em;
+  margin: 0;
+  font-size: large;
+}
+
+.message-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: medium;
+  width: 100%;
+  text-align: left;
+
+}
+
+.message-issues-wrap {
+  font-size: medium;
+  width: 100%;
+  text-align: left;
+}
+
+.md-select-value {
+  color: $warning-color !important;
+}

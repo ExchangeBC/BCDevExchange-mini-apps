@@ -1,0 +1,83 @@
+<!--
+
+Copyright 2016, Cloud Compass Computing, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+<md-content class="md-padding md-whiteframe-2dp" layout="column" layout-margin>
+  <h1 class="md-title">Project Team</h1>
+  <md-divider></md-divider>
+
+
+  <!-- Add to team -->
+  <div class="md-padding" layout="row">
+
+    <!-- Search bar -->
+    <md-contact-chips flex="50" flex-xs="80"
+                      ng-model="vm.asyncContacts"
+                      md-contacts="vm.delayedQuerySearch($query)"
+                      md-contact-name="name"
+                      md-contact-image="image"
+                      md-contact-email="email"
+                      md-require-match="true"
+                      md-highlight-flags="i"
+                      placeholder="Add to contributors">
+    </md-contact-chips>
+
+    <!-- Add button -->
+    <md-button ng-disabled="vm.loading||vm.asyncContacts.length==0" ng-click="vm.addToTeam(vm.asyncContacts)"
+               class="md-fab md-mini md-accent">
+      <i class="material-icons md-24">add</i>
+    </md-button>
+
+  </div>
+  <!-- Add to team end -->
+
+
+  <h2 class="md-subhead">Contributors:</h2>
+
+  <!-- loading bar -->
+  <div>
+    <md-progress-linear md-mode="indeterminate" ng-show="vm.loading"></md-progress-linear>
+    <span ng-if="!vm.loading&&vm.contributors.length==0">This project has no contributors</span>
+  </div>
+
+  <!--team grid -->
+  <md-grid-list md-cols-xs="2"
+                md-cols-sm="3"
+                md-cols-md="6"
+                md-cols-gt-md="8"
+                md-row-height="1:1"
+                md-gutter="12px">
+
+    <!-- Repeated element begin-->
+    <md-grid-tile ng-repeat="user in vm.contributors" class="md-whiteframe-5dp">
+      <div layout-fill layout="column" layout-align="space-between end">
+        <img ng-src="images/stacky500p.png" style="position:absolute;width:100%">
+        <md-button class="md-warn md-icon-button" ng-click="vm.showDeleteDialog(user)"
+                   style="position:relative;top:-.5em;right:-1em">
+          <i class="material-icons md-24">cancel</i>
+        </md-button>
+      </div>
+      <md-grid-tile-footer layout layout-align="center center">
+        <md-tooltip md-direction="right">{{user.email}}</md-tooltip>
+        {{user.username}}
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <!-- Repeated element end-->
+
+  </md-grid-list>
+  <!--team grid end -->
+
+</md-content>

@@ -1,0 +1,72 @@
+<!--
+
+Copyright 2016, Cloud Compass Computing, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+<!--StackButton toolbar with button back to landing -->
+<div>
+  <md-toolbar class="md-hue-3" md-theme="grey" md-tall layout="row" layout-align="center center">
+    <div layout="row" layout-align="center center">
+      <img class="sb-logo detail sb-48px" ui-sref="welcome"/>
+      <h2>StackButton</h2>
+    </div>
+  </md-toolbar>
+</div>
+
+<md-divider></md-divider>
+
+<!-- Login form -->
+<form name="vm.loginForm" ng-submit="vm.authenticate(vm.login.user,vm.login.password)">
+  <h1>
+    <span class="md-headline">Login</span>
+  </h1>
+
+  <!-- Error message -->
+  <div class="md-warn" ng-if="vm.login.error">{{vm.login.error}}</div>
+
+  <div layout-xs="column" layout="row" layout-align="space-around center">
+
+    <!-- Username/email box -->
+    <md-input-container>
+      <label for="userName">Username</label>
+      <input id="userName" type="text" name="text" ng-model="vm.login.user" required md-autofocus>
+      <div ng-messages="vm.loginForm.userName.$error">
+        <div ng-message="required">Username is required</div>
+      </div>
+    </md-input-container>
+
+    <!-- Password box -->
+    <md-input-container>
+      <label for="userPass">Password</label>
+      <input id="userPass" name="userPass" type="password" ng-model="vm.login.password" required>
+      <div ng-messages="vm.loginForm.userPass.$error">
+        <div ng-message="required">Password is required</div>
+      </div>
+    </md-input-container>
+
+  </div>
+
+  <!-- Buttons-->
+  <div layout-xs="column" layout="row" layout-align="space-between center">
+    <div flex-order-xs="2" >
+      <md-button ui-sref="account.register" class="button">No account?</md-button>
+      <md-button ui-sref="welcome" class="button">Forgot Password?</md-button>
+    </div>
+    <button class="md-button md-raised md-cornered md-accent" ng-disabled="vm.loginForm.$submitted" type="submit">
+      <md-progress-linear class="md-primary" ng-show="vm.loginForm.$submitted"></md-progress-linear>
+      <span ng-hide="vm.loginForm.$submitted">Login</span>
+    </button>
+  </div>
+</form>

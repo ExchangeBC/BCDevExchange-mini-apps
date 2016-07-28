@@ -1,0 +1,53 @@
+<!--
+
+Copyright 2016, Cloud Compass Computing, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+<md-content class="md-padding md-whiteframe-2dp" layout="column" layout-align="center center" layout-margin>
+  <p class="md-headline">Create Project</p>
+  <!-- Create project form -->
+  <form name="projectForm" ng-submit="vm.addProject(vm.projectName, vm.projectDescription)">
+
+    <!--Project name container and error message -->
+    <md-input-container>
+      <label>Project Name</label>
+      <input name="projectName" type="text" ng-model="vm.projectName" md-minlength="3" md-maxlength="30">
+      <div ng-messages="projectForm.projectName.$error" required ng-show="projectForm.projectName.$dirty">
+        <div ng-message="required">This is required!</div>
+      </div>
+    </md-input-container>
+
+    <!-- Project description container and error message -->
+
+    <md-input-container>
+      <label>Description</label>
+          <textarea name="projectDescription" type="text" ng-model="vm.projectDescription" required
+                    md-maxlength="100"></textarea>
+      <div ng-messages="projectForm.projectDescription.$error" ng-show="projectForm.projectDescription.$dirty">
+        <div ng-message="required">This is required!</div>
+      </div>
+    </md-input-container>
+
+    <!-- Actions-->
+    <div layout="row" layout-align="center start">
+      <button class="md-button md-raised" ui-sref="home.projects">Cancel</button>
+      <button class="md-button md-raised md-accent" ng-disabled="projectForm.$invalid || projectForm.$submitted"
+              type="submit">
+        <md-progress-linear class="md-accent" ng-show="projectForm.$submitted"></md-progress-linear>
+        <span ng-hide="projectForm.$submitted">Create</span>
+      </button>
+    </div>
+  </form>
+</md-content>

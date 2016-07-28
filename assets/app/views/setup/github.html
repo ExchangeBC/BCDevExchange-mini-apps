@@ -1,0 +1,73 @@
+<!--
+
+Copyright 2016, Cloud Compass Computing, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+<!--STEP 1-->
+<div ng-init="vm.pageCount=2" ng-show="vm.currentPage == 1" layout="column" layout-align="start center">
+
+  <!-- Show existing services -->
+
+  <md-button ng-repeat="service in vm.services" ng-click="vm.selectService(service)">
+    {{service.name}}
+  </md-button>
+
+  <div layout="row">
+    <!--Input for new token-->
+    <md-input-container>
+      <label>Personal token</label>
+      <input ng-Model="token" type="text">
+    </md-input-container>
+    <md-button class="md-fab" ng-click="vm.addService(vm.currentPlatform, token)"><i class="material-icons">add</i>
+    </md-button>
+  </div>
+
+  <!--Buttons-->
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button ng-show="vm.currentPage > 0" class="md-raised" ng-click="vm.back()">Back</md-button>
+    <md-button ng-show="vm.currentPage < vm.pageCount" class="md-raised"
+               ng-click="vm.next()" ng-disabled="vm.currentServiceId==null">Next
+    </md-button>
+    <md-button ng-show="vm.currentPage == vm.pageCount" class="md-raised">Finish</md-button>
+  </md-card-actions>
+  <!--Buttons end-->
+</div>
+<!--STEP 1 END-->
+
+<!--STEP 2-->
+<div ng-show="vm.currentPage == 2" layout="column" layout-align="start center">
+
+  Choose a repository:
+  <md-button ng-repeat="repo in vm.repos" ng-click="vm.configureModule(repo, ['full_name', 'name'])"
+             ng-disabled="repo.permissions.admin==false">
+    {{repo.full_name}}
+  </md-button>
+
+  <!--Buttons-->
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button ng-show="vm.currentPage > 0" class="md-raised" ng-click="vm.back()">Back</md-button>
+    <md-button ng-show="vm.currentPage < vm.pageCount" class="md-raised"
+               ng-click="vm.next()" ng-disabled="vm.currentModule.config.repoFullName==null">Next
+    </md-button>
+    <md-button ng-show="vm.currentPage == vm.pageCount" ng-click="vm.addModule(vm.currentModule)" class="md-raised">
+      Finish
+    </md-button>
+  </md-card-actions>
+  <!--Buttons end-->
+
+</div>
+<!--STEP 2 END-->
+
+

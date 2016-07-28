@@ -1,0 +1,95 @@
+<!--
+
+Copyright 2016, Cloud Compass Computing, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+<div layout="column">
+  <md-button ui-sref="home.projects" layout="row" layout-align="start center">
+    <i class="material-icons">view_module</i>
+    <span layout flex>Projects</span>
+  </md-button>
+  <!-- Service Button -->
+  <md-button flex layout ui-sref="home.services">
+    <i class="material-icons">power</i>
+    <span layout flex>Services</span>
+  </md-button>
+
+
+</div>
+
+
+<!-- Menu items -->
+<div layout="column" ng-hide="currentProject==null">
+  <!--Project indicator -->
+  <md-toolbar class="md-accent" layout="column">
+    <span layout>
+      <span class="md-body-2" layout-padding>{{currentProject.name}}</span>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Edit project" ng-if="currentProject.owner==currentUser.id"
+                 ui-sref="home.editproject({project:currentProject.id})">
+        <i class="dash-widget-topbar-text material-icons">mode_edit</i>
+      </md-button>
+    </span>
+    <md-divider></md-divider>
+    <span class="md-body-1" layout-padding>{{currentProject.description}}</span>
+  </md-toolbar>
+  <md-divider></md-divider>
+  <!-- end Project indicator -->
+
+  <!-- Dashboard Button -->
+  <div layout="row">
+    <div class="leftnav-color-indent-item"></div>
+    <md-button ng-disabled="true" flex layout>Dashboards:</md-button>
+    <!-- add Dashboard -->
+    <md-button class="md-icon-button" ng-click="vm.addDashboard()"><i class="material-icons">add</i></md-button>
+  </div>
+
+  <!-- separate buttons-->
+  <md-divider></md-divider>
+
+  <!-- sub dashboards -->
+  <div layout="row" ng-repeat="dashboard in currentProject.dashboards">
+    <div class="leftnav-color-indent-item"></div>
+    <div class="leftnav-color-indent-sub"></div>
+    <md-button flex layout
+               ui-sref="home.dashboard({project:dashboard.project,dashboard:dashboard.id})">{{dashboard.name}}
+    </md-button>
+  </div>
+  <!-- end sub dashboards -->
+
+  <!-- separate buttons-->
+  <md-divider></md-divider>
+
+  <!-- Module Button -->
+  <div layout="row">
+    <div class="leftnav-color-indent-item"></div>
+    <md-button flex layout ui-sref="home.modules({project:currentProject.id})">Modules</md-button>
+  </div>
+
+  <!-- separate buttons-->
+  <md-divider></md-divider>
+
+  <!-- separate buttons-->
+  <md-divider></md-divider>
+
+  <!-- Team Button -->
+  <div layout="row">
+    <div class="leftnav-color-indent-item"></div>
+    <md-button flex layout ui-sref="home.team({project:currentProject.id})">Team</md-button>
+  </div>
+
+  <!-- separate buttons-->
+  <md-divider></md-divider>
+</div>

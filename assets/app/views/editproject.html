@@ -1,0 +1,58 @@
+<!--
+
+Copyright 2016, Cloud Compass Computing, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+<md-content md-theme="dark" class="md-padding md-whiteframe-2dp" layout-margin>
+  <div ng-show="vm.loading" layout layout-align="center">
+    <md-progress-circular md-mode="indeterminate" md-diameter="96"></md-progress-circular>
+  </div>
+
+  <form name="editproj" ng-submit="vm.updateProject(vm.name, vm.description)"
+        layout="column" layout-align="center" ng-show="!vm.loading">
+
+    <!-- Project Title -->
+    <md-input-container>
+      <label>Project Title</label>
+      <input ng-model="vm.name" md-maxlength="50">
+    </md-input-container>
+
+    <!-- Project Description -->
+    <md-input-container flex>
+      <label>Project Description</label>
+      <textarea ng-model="vm.description" columns="1" md-maxlength="100"></textarea>
+    </md-input-container>
+
+    <!-- Page controls/buttons -->
+    <div layout="row" layout-align="space-between center" layout-xs="column">
+      <!-- Delete button (Separate from page controls)-->
+      <md-button class="md-raised md-warn" ng-click="vm.showDeleteDialog(currentProject)">
+        <md-progress-linear ng-show="vm.deleting" class="md-warn"></md-progress-linear>
+        <span ng-hide="vm.deleting">Delete Project</span>
+      </md-button>
+
+      <span layout layout-align="end center">
+        <button class="md-button md-raised" ng-click="goBack()">Back</button>
+        <button class="md-button md-accent md-raised" ng-disabled="editproj.$invalid || editproj.$submitted"
+                type="submit">
+          <md-progress-linear md-mode="indeterminate" ng-show="editproj.$submitted"
+                              class="md-accent"></md-progress-linear>
+          <span ng-hide="editproj.$submitted">Save</span>
+        </button>
+      </span>
+    </div>
+
+  </form>
+</md-content>
