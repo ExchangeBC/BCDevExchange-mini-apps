@@ -1,30 +1,7 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12 devx-developer-header">
-      <h1>Code with us</h1>
-      Find opportunities to contribute to government projects.
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-12 main">
-      <div class="jumbotron">
-
-        <p class="lead">
-          We use open source licenses to receive, innovate and share your contributions. Contribute to issues marked
-          with a
-          <i class="fa fa-heart" style="color:red;"></i> at your own pace. Contributions to issues tagged with <span
-          class="label" style="background-color:#0052cc;"><i class="fa fa-tag"></i>$1000</span> are accepted according
-          to
-          our <a href="https://github.com/BCDevExchange/rapid-adoption/wiki">Pay for Pull Terms</a>. Let’s avoid
-          duplicating
-          effort. If you see an issue in progress, please give people time to work on it.
-        </p>
-
-      </div>
-    </div>
-  </div>
   <div class="row opportunity-list">
     <div class="col-sm-12 col-md-12 main">
+    {{ v.openIssues.length }}
       <div id="open-issues-panel" class="panel panel-default">
         <div class="panel-heading"><b>Open</b></div>
 
@@ -42,9 +19,9 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="issue in issues">
-                <td><a href="/programs/{{issue.devXProgramNm}}">{{issue.devXProgramNm}}</a></td>
-                <td><a href="{{issue.html_url}}">{{issue.title}}</a></td>
+              <tr ng-repeat="issue in v.openIssues">
+                <td><a href="/programs/{{issue.program}}">{{issue.program}}</a></td>
+                <td><a href="{{issue.url}}">{{issue.title}}</a></td>
                 <td class="hidden-phone" style="text-align: left">
                   <div
                     ng-repeat="label in issue.labels | filter: {name: 'help wanted'}"
@@ -76,7 +53,7 @@
                 <td></td>
 
               </tr>
-              <tr ng-if="issues.length === 0">
+              <tr ng-if="v.openIssues.length === 0">
                 <td colspan="6">There are currently no open issues.</td>
               </tr>
               </tbody>
@@ -86,7 +63,7 @@
       </div>
 
       <div id="assigned-issues-panel" class="panel panel-default"
-           ng-if="assignedIssues && assignedIssues.length>0">
+           ng-if="v.assignedIssues && v.assignedIssues.length>0">
         <div class="panel-heading"><b>In Progress</b></div>
 
         <div class="panel-body">
@@ -103,9 +80,9 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="issue in assignedIssues">
-                <td><a href="/programs/{{issue.devXProgramNm}}">{{issue.devXProgramNm}}</a></td>
-                <td><a href="{{issue.html_url}}">{{issue.title}}</a></td>
+              <tr ng-repeat="issue in v.assignedIssues">
+                <td><a href="/programs/{{issue.program}}">{{issue.program}}</a></td>
+                <td><a href="{{issue.url}}">{{issue.title}}</a></td>
                 <td style="text-align: left" class="hidden-phone">
               <span
                 ng-repeat="label in issue.labels | filter: {name: 'help wanted'}"
@@ -150,7 +127,7 @@
         <div class="panel-heading"><b>Done</b></div>
 
         <div class="panel-body">
-          <div ng-if="closedIssues && closedIssues.length>0">
+          <div ng-if="v.closedIssues && v.closedIssues.length>0">
             <div class="table-responsive-bleh">
               <table class="table table-striped">
                 <thead>
@@ -165,9 +142,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="issue in closedIssues">
-                  <td><a href="/programs/{{issue.devXProgramNm}}">{{issue.devXProgramNm}}</a></td>
-                  <td><a href="{{issue.html_url}}">{{issue.title}}</a>
+                <tr ng-repeat="issue in v.closedIssues">
+                  <td><a href="/programs/{{issue.program}}">{{issue.program}}</a></td>
+                  <td><a href="{{issue.url}}">{{issue.title}}</a>
                   </td>
                   <td class="hidden-phone" style="white-space: nowrap">
                     {{issue.closed_at | date:'yyyy-MM-dd' }}

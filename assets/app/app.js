@@ -97,20 +97,23 @@ sbapp
         .state('app.developers', {
           url          : '/developers',
           templateUrl  : 'app/views/apps/developers.html',
-          controllerAs : 'vm',
           data         : {authorizedRoles: [USER_ROLES.all]},
           resolve      : {
-            issues : function ($resource) {
-              return $resource ('/api/issues/:program').get ({});
+            issuesdata : function ($resource, $http) {
+              // return $resource ('/api/issues/:program').get ({});
+              return $http ({method:'GET', url:'/api/issues'});
             }
           },
-          controller   : function ($scope, issues) {
-            console.log ('issues = ', issues);
-            $scope.issues         = issues;
-            // openIssues.forEach (function (issue) {
-            //   if (issue.assignee == null) $scope.issues.push (issue);
-            //   else $scope.assignedIssues.push (issue);
-            // });
+          controllerAs : 'v',
+          controller   : function ($scope, issuesdata) {
+            var v = this;
+            var issues = issuesdata.data;
+            // console.log ('issues = ', issues);
+            // $scope.issues         = issues;
+            v.closedIssues = issues.state.closed || [];
+            v.openIssues   = issues.state.open || [];
+            v.assignedIssues = issues.label['in progress'] || [];
+            // $scope.$apply ();
           }
         })
       ;

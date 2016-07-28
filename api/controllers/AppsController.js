@@ -15,6 +15,7 @@ module.exports = {
 		var program = req.params.program || '';
 		console.log ('gathering issues for program: '+program);
 		ProgramService.getIssues (program)
+		.then (ProgramService.categorizeIssues)
 		.then (function (results) {
 			console.log ('about to send results');
 			res.json (results);
