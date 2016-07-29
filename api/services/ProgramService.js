@@ -29,10 +29,7 @@ var github = require('octonode');
 // 	id     : 'abcdefg',
 // 	secret : 'gfedcba'
 // });
-var client = github.client ({
-	username : 'ccoldwell',
-	password : 'q2w3e4r5'
-});
+var client = github.client ();
 
 var configuration = {
 	programListingPath : 'BCDevExchange/BCDevExchange-Programs',
