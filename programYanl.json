@@ -1,0 +1,237 @@
+[
+    {
+        "title": "Example Program",
+        "description": "Example Program is the hub for engagement opportunitities that need people to participate - to listen, get informed, and speak up.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API",
+            "Code",
+            "Data",
+            "Help Wanted"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/exampleprogram.md",
+        "visible": "no"
+    },
+    {
+        "title": "Test title",
+        "description": "Test description",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Tag1",
+            "Tag2",
+            "Tag3"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/test.md",
+        "visible": "no"
+    },
+    {
+        "title": "BC Assessment",
+        "description": "BC Assessment believes better access to property information can create economic opportunities for companies across British Columbia.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Code"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/bcassessment.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/BCDevExchange/bc-property-api-specification"
+    },
+    {
+        "title": "Citizen Engagement Web Toolkit",
+        "description": "The Government of B.C.'s Citizen Engagement Branch is sharing its open source code developed for WordPress, product roadmap, and requirements backlog.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Code"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/cityofkamloops.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/citizen-engagement-web-toolkit"
+    },
+    {
+        "title": "Environmental Reporting BC",
+        "description": "Environmental Reporting BC provides access to scientific data and information about our environment and how it relates to British Columbians.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Code",
+            "Data"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/cityofkamloops.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/EnvReportBC-RepoList"
+    },
+    {
+        "title": "BC Laws",
+        "description": "BC Laws is a portal application that has been developed by the Queen's Printer of British Columbia to access BC provincial legislation.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API",
+            "Code",
+            "Help Wanted"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/bclaws.md",
+        "id": "55d51525b34bbbd841f689d4",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/bc-laws-api"
+    },
+    {
+        "title": "City of Vancouver",
+        "description": "Vancouver released its Digital Strategy with commitments to support innovation and growth in the local digital economy.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Data"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/vancouver.md",
+        "visible": "yes",
+        "githubUrl": "undefined"
+    },
+    {
+        "title": "City of Surrey",
+        "description": "Surrey is very excited to join the BC Developers' Exchange.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API",
+            "Data"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/surrey.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/CityofSurrey/ckanext-surrey"
+    },
+    {
+        "title": "Bad Markdown",
+        "description": "A test page for really bad markdown",
+        "owner": "BCDevExchange",
+        "tags": null,
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/test-break.md",
+        "visible": "no"
+    },
+    {
+        "title": "FirstVoices Dictionary",
+        "description": "FirstVoices Dictionary is an online application supporting the language documentation and revitalization initiatives of the First Peoples' Cultural Foundation",
+        "owner": "BCDevExchange",
+        "tags": null,
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/first-voices-dictionary.md",
+        "visible": "yes",
+        "githubUrl": "undefined"
+    },
+    {
+        "title": "BC Physical Address Geocoder",
+        "description": "The BC Physical Address Geocoder web service locates and standardizes British Columbia civic addresses within your web pages and applications.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/geocoder.md",
+        "visible": "yes",
+        "githubUrl": "undefined"
+    },
+    {
+        "title": "BC Data Catalogue",
+        "description": "The BC Data Catalogue provides information and access to more than 3500 government datasets web services (APIs) and online applications.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API",
+            "Code",
+            "Data"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/bcdatacatalogue.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/ckanext-bcgov"
+    },
+    {
+        "title": "City of Kamloops",
+        "description": "The City of Kamloops has joined the BCDevExchange profiling their open data which is now under the Open Government License - British Columbia.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API",
+            "Data"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/cityofkamloops.md",
+        "visible": "yes",
+        "githubUrl": "undefined"
+    },
+    {
+        "title": "Open511-DriveBC",
+        "description": "The Open511-DriveBC API serves DriveBC's implementation of the Open511 Specification for road incident construction and condition information.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/open511-drivebc.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/drivebc-webcam-api"
+    },
+    {
+        "title": "BCDevExchange",
+        "description": "BCDevExchange is an experiment; an idea that needs to be proven. We will test validate and refine the idea with tech entrepreneurs and early adopters in the public sector.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Code"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/bcdevexchange.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/BCDevExchange/BCDevExchange-app"
+    },
+    {
+        "title": "City of Victoria",
+        "description": "The City is interested in using technology and data to engage residents at a neighbourhood level.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Data"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/city%of%victoria.md",
+        "visible": "yes",
+        "githubUrl": "undefined"
+    },
+    {
+        "title": "TransLink",
+        "description": "TransLink is providing resources for software developers to promote the use of public transit and major roadways in Metro Vancouver.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "API"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/TransLink.md",
+        "visible": "yes",
+        "githubUrl": "undefined"
+    },
+    {
+        "title": "Environmental Assessment Office",
+        "description": "The Environmental Assessment Office (EAO) is an independent provincial agency responsible for conducting Environmental Assessments , and administering the B.C. Environmental Assessment Act.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Code"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/cityofkamloops.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/esm-server"
+    },
+    {
+        "title": "Township of Langley",
+        "description": "The Township of Langley is actively leveraging technology to reimagine service delivery to meet the changing needs and expectations of its many different stakeholders.",
+        "owner": "BCDevExchange",
+        "tags": [
+            "Data"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/cityofkamloops.md",
+        "visible": "yes",
+        "githubUrl": "undefined"
+    },
+    {
+        "title": "DataBC Web Mapping",
+        "description": "DataBC offers data connection services that allow users to view thousands of data layers from the BC Geographic Warehouse.",
+        "tags": [
+            "Help Wanted"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/cityofkamloops.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/databc-web-map-services"
+    },
+    {
+        "title": "OCIO Tech Strategies",
+        "description": "The Office of the Chief Information Officer (OCIO) is a central agency of the Province of B.C. that leads strategy, policy and standards for information technology, IT security and IM/IT investment.",
+        "tags": [
+            "Help Wanted"
+        ],
+        "url": "BCDevExchange/BCDevExchange-Programs/contents/Programs/cityofkamloops.md",
+        "visible": "yes",
+        "githubUrl": "https://github.com/bcgov/interactive-infographic"
+    }
+]
