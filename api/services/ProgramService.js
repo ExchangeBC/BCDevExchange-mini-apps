@@ -37,12 +37,57 @@ var client = github.client ({
 var configuration = {
 	programListingPath : 'BCDevExchange/BCDevExchange-Programs',
 	programListingYAML : 'Code/directory.yml',
-	programListingBranch : 'master'
+	programListingBranch : 'master',
+	programListingUrl : 'http://localhost:4000/directory'
 };
 
 // -------------------------------------------------------------------------
 //
-// go to the program listing repo and get the yaml file which lists tham all
+// go to the program listing repo and get the yaml file which lists them all
+//
+// -------------------------------------------------------------------------
+var getAllPrograms = function () {
+	var request = require ('request');
+	console.log ('getting all progams');
+	return new Promise (function (resolve, reject) {
+		request({
+			url    : configuration.programListingUrl,
+			method : 'GET',
+			headers: {
+				'host': 'localhost:4000',
+	    		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+	    		'Content-Type': 'application/json'
+	  		}
+		}, function (err, res, body) {
+			if (err) {
+				err.fullpath = configuration.programListingUrl;
+				reject (err);
+			}
+			else if (res.statusCode != 200) {
+				reject (new Error (configuration.programListingUrl+': '+res.statusCode+' '+body));
+			}
+			else {
+				console.log (configuration.programListingUrl+': '+res.statusCode+' ');
+				console.log (body);
+				resolve (JSON.parse(body));
+			}
+		});
+	});
+	// return new Promise (function (resolve, reject) {
+	// 	client
+	// 	.repo (configuration.programListingPath)
+	// 	.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
+	// 		var programYaml;
+	// 		try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
+	// 		catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
+	// 		return resolve (programYaml);
+	// 	});
+	// });
+};
+exports.getAllPrograms = getAllPrograms;
+// -------------------------------------------------------------------------
+//
+// go to the program listing repo and get the yaml file which lists them all
 // parse the file out and return only those that are listed as visible.
 // if a particular program name was passed in then only return that program
 // and only if it is indicated as visible
@@ -50,18 +95,24 @@ var configuration = {
 // -------------------------------------------------------------------------
 var getPrograms = function (title) {
 	title = title || '';
-	return new Promise (function (resolve, reject) {
-		client
-		.repo (configuration.programListingPath)
-		.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
-			var programYaml;
-			try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
-			catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
-			return resolve (programYaml.filter (function (el) {
-				return (el.visible === 'yes' && (!title || el.title === title));
-			}));
+	return getAllPrograms ()
+	.then (function (programYaml) {
+		return programYaml.filter (function (el) {
+			return (el.visible === 'yes' && (!title || el.title === title));
 		});
 	});
+	// return new Promise (function (resolve, reject) {
+	// 	client
+	// 	.repo (configuration.programListingPath)
+	// 	.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
+	// 		var programYaml;
+	// 		try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
+	// 		catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
+	// 		return resolve (programYaml.filter (function (el) {
+	// 			return (el.visible === 'yes' && (!title || el.title === title));
+	// 		}));
+	// 	});
+	// });
 };
 exports.getPrograms = getPrograms;
 // -------------------------------------------------------------------------
