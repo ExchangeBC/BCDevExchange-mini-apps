@@ -38,48 +38,53 @@ var configuration = {
 	programListingUrl : 'http://localhost:4000/directory'
 };
 
+var byGITHUB = true;
+
 // -------------------------------------------------------------------------
 //
 // go to the program listing repo and get the yaml file which lists them all
 //
 // -------------------------------------------------------------------------
 var getAllPrograms = function () {
-	var request = require ('request');
-	console.log ('getting all progams');
-	return new Promise (function (resolve, reject) {
-		request({
-			url    : configuration.programListingUrl,
-			method : 'GET',
-			headers: {
-				'host': 'localhost:4000',
-	    		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
-	    		'Content-Type': 'application/json'
-	  		}
-		}, function (err, res, body) {
-			if (err) {
-				err.fullpath = configuration.programListingUrl;
-				reject (err);
-			}
-			else if (res.statusCode != 200) {
-				reject (new Error (configuration.programListingUrl+': '+res.statusCode+' '+body));
-			}
-			else {
-				console.log (configuration.programListingUrl+': '+res.statusCode+' ');
-				console.log (body);
-				resolve (JSON.parse(body));
-			}
+	console.log ('getting all programs');
+	if (byGITHUB) {
+		return new Promise (function (resolve, reject) {
+			client
+			.repo (configuration.programListingPath)
+			.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
+				var programYaml;
+				try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
+				catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
+				return resolve (programYaml);
+			});
 		});
-	});
-	// return new Promise (function (resolve, reject) {
-	// 	client
-	// 	.repo (configuration.programListingPath)
-	// 	.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
-	// 		var programYaml;
-	// 		try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
-	// 		catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
-	// 		return resolve (programYaml);
-	// 	});
-	// });
+	} else {
+		return new Promise (function (resolve, reject) {
+			var request = require ('request');
+			request({
+				url    : configuration.programListingUrl,
+				method : 'GET',
+				headers: {
+					'host': 'localhost:4000',
+		    		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+		    		'Content-Type': 'application/json'
+		  		}
+			}, function (err, res, body) {
+				if (err) {
+					err.fullpath = configuration.programListingUrl;
+					reject (err);
+				}
+				else if (res.statusCode != 200) {
+					reject (new Error (configuration.programListingUrl+': '+res.statusCode+' '+body));
+				}
+				else {
+					console.log (configuration.programListingUrl+': '+res.statusCode+' ');
+					console.log (body);
+					resolve (JSON.parse(body));
+				}
+			});
+		});
+	}
 };
 exports.getAllPrograms = getAllPrograms;
 // -------------------------------------------------------------------------

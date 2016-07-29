@@ -95,13 +95,14 @@ sbapp
         //
         // -------------------------------------------------------------------------
         .state('app.developers', {
-          url          : '/developers',
+          url          : '/developers/:program',
           templateUrl  : 'app/views/apps/developers.html',
           data         : {authorizedRoles: [USER_ROLES.all]},
           resolve      : {
-            issuesdata : function ($resource, $http) {
+            issuesdata : function ($resource, $http, $stateParams) {
               // return $resource ('/api/issues/:program').get ({});
-              return $http ({method:'GET', url:'/api/issues'});
+              var program = $stateParams.program || '';
+              return $http ({method:'GET', url:'/api/issues/'+program});
             }
           },
           controllerAs : 'v',
