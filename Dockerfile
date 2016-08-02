@@ -78,22 +78,22 @@ ENV PATH $BUNDLE_BIN:$PATH
 RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 	&& chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
-# CMD [ "irb" ]
 # End of Ruby Install
 
-
-# Sails and Stackbutton setup
+# Sails setup
 WORKDIR /app/
-RUN npm install grunt bower -g && gem install sass && npm -g install sails && npm install sails-disk --save
+RUN gem install sass && npm -g install sails && npm install sails-disk --save
 ADD package.json /app/
 ADD Gruntfile.js /app/
-ADD bower.json /app/
-ADD .bowerrc /app/
 RUN npm install
-RUN bower install --allow-root
 ADD . .
+
+RUN adduser --system devex && chown -R devex:0 . && chmod -R 770 .
+
+USER devex
 
 VOLUME /app
 
+EXPOSE 1337
+
 CMD ["sails","lift","--models.migrate=create", "--verbose"]
-# CMD ["sails","lift"]
