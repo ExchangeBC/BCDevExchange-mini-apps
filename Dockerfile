@@ -2,7 +2,6 @@ FROM node:4.4.3-wheezy
 
 # Sails setup
 WORKDIR /app/
-RUN npm -g install sails && npm install sails-disk --save
 ADD package.json /app/
 ADD Gruntfile.js /app/
 RUN npm install
@@ -16,4 +15,6 @@ VOLUME /app
 
 EXPOSE 1337
 
-CMD ["sails","lift","--models.migrate=create", "--verbose"]
+ENV NODE_ENV=production
+
+CMD ["node","app.js"]

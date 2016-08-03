@@ -29,6 +29,8 @@ limitations under the License.
 
 module.exports = {
 
+  hookTimeout: 300000,   // 5 mins
+
   /***************************************************************************
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
@@ -48,8 +50,8 @@ module.exports = {
    * Set the log level in production environment to "silent"                 *
    ***************************************************************************/
 
-  // log: {
-  //   level: "silent"
-  // }
+   log: {
+     level: "silly"
+   }
 
 };
