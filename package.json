@@ -44,7 +44,7 @@
     "ui-router-extras": "^0.1.2",
     "js-yaml": "^3.6.1",
     "md-data-table": "^1.6.6",
-    "ansi-styles" : "^2.1.0"  // force version do avoid chalk problems
+    "ansi-styles" : "^2.1.0"
   },
   "devDependencies": {
     "grunt": "0.4.5",
