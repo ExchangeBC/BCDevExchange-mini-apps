@@ -37,6 +37,7 @@ var cssFilesToInject = [
   'bower_components/angular-material/angular-material.css',
   'bower_components/nvd3/build/nv.d3.css',
   'bower_components/mdi/css/materialdesignicons.min.css',
+  'bower_components/mdDataTable/dist/md-data-table-style.css',
   'styles/**/*.css'
 ];
 
@@ -58,6 +59,7 @@ var jsFilesToInject = [
   'bower_components/angular-cookies/angular-cookies.min.js',
   'bower_components/angular-aria/angular-aria.min.js',
   'bower_components/d3/d3.min.js',
+  'bower_components/lodash/lodash.min.js',
   'bower_components/nvd3/build/nv.d3.min.js',
   'bower_components/angular-nvd3/dist/angular-nvd3.min.js',
   'bower_components/angular-resource/angular-resource.min.js',
@@ -69,6 +71,9 @@ var jsFilesToInject = [
   'bower_components/ui-router-extras/release/modular/ct-ui-router-extras.transition.min.js',
   'bower_components/ui-router-extras/release/modular/ct-ui-router-extras.previous.min.js',
   'bower_components/angular-sails/dist/angular-sails.min.js',
+  'bower_components/angular-material-icons/angular-material-icons.min.js',
+  'bower_components/mdDataTable/dist/md-data-table.js',
+  'bower_components/mdDataTable/dist/md-data-table-templates.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
