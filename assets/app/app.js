@@ -27,7 +27,8 @@ var sbapp = angular.module('sbapp', [
   'ngMaterial',
   'nvd3',
   'ngSails',
-  'ngMessages'
+  'ngMessages',
+  'mdDataTable'
 ]);
 
 sbapp
