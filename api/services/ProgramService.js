@@ -29,13 +29,17 @@ var github = require('octonode');
 // 	id     : 'abcdefg',
 // 	secret : 'gfedcba'
 // });
-var client = github.client ();
+var client = github.client ({
+	username     : 'ccoldwell',
+	password : '1qazse4'
+});
+// var client = github.client ();
 
 var configuration = {
 	programListingPath : 'BCDevExchange/BCDevExchange-Programs',
 	programListingYAML : 'Code/directory.yml',
 	programListingBranch : 'master',
-	programListingUrl : 'http://localhost:4000/directory'
+	programListingUrl : 'http://bcdevexchange-dev.pathfinder.gov.bc.ca/directory'
 };
 
 var byGITHUB = true;
@@ -47,6 +51,7 @@ var byGITHUB = true;
 // -------------------------------------------------------------------------
 var getAllPrograms = function () {
 	console.log ('getting all programs');
+
 	if (byGITHUB) {
 		return new Promise (function (resolve, reject) {
 			client

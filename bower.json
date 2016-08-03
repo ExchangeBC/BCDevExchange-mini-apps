@@ -25,7 +25,8 @@
     "angular-sails": "^1.1.4",
     "mdi": "^1.6.50",
     "ui-router-extras": "^0.1.2",
-    "mdDataTable": "^1.6.6"
+    "mdDataTable": "^1.6.6",
+    "bootstrap": "^3.3.7"
   },
   "ignore": [
     "**/.*",

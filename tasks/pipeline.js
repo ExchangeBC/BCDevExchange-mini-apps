@@ -38,6 +38,7 @@ var cssFilesToInject = [
   'bower_components/nvd3/build/nv.d3.css',
   'bower_components/mdi/css/materialdesignicons.min.css',
   'bower_components/mdDataTable/dist/md-data-table-style.css',
+  'bower_components/bootstrap/dist/css/bootstrap.css',
   'styles/**/*.css'
 ];
 
@@ -74,6 +75,8 @@ var jsFilesToInject = [
   'bower_components/angular-material-icons/angular-material-icons.min.js',
   'bower_components/mdDataTable/dist/md-data-table.js',
   'bower_components/mdDataTable/dist/md-data-table-templates.js',
+  'bower_components/bootstrap/dist/js/bootstrap.js',
+
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.

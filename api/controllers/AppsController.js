@@ -1,6 +1,8 @@
 
 var github = require('octonode');
 var yaml = require('js-yaml');
+var getCached = false;
+var myCached = require ('../services/cached.json');
 
 module.exports = {
 
@@ -12,6 +14,7 @@ module.exports = {
 		});
 	},
 	issues: function (req, res) {
+		if (getCached) return res.json (myCached);
 		var program = req.params.program || '';
 		console.log ('gathering issues for program: '+program);
 		ProgramService.getIssues (program)
