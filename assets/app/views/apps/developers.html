@@ -7,8 +7,7 @@
 <mdt-header-row>
 	<mdt-column align-rule="left">Partner</mdt-column>
 	<mdt-column align-rule="left">Issue</mdt-column>
-	<mdt-column align-rule="left"></mdt-column>
-	<mdt-column align-rule="right">Earn</mdt-column>
+	<mdt-column align-rule="left">Labels</mdt-column>
 	<mdt-column align-rule="left">Skills Required</mdt-column>
 	<mdt-column align-rule="left"></mdt-column>
 </mdt-header-row>
@@ -16,31 +15,9 @@
 	<mdt-cell>{{issue.program}}</mdt-cell>
 	<mdt-cell>{{issue.title}}</mdt-cell>
 	<mdt-cell>
-		<div
-		ng-repeat="label in issue.labels | filter: {name: 'help wanted'}"
-		style="background-color:#{{label.color}}" class="label">
-		<i class="fa fa-tag"></i> {{label.name}}
-		</div>
-	</mdt-cell>
-	<mdt-cell>
-		<div
-			ng-repeat="label in issue.labels | filter:{color:'0052cc'} as results"
-			style="background-color:#{{label.color}}" class="label">
+		<div ng-repeat="label in issue.labels"style="background-color:#{{label.color}}" class="label">
 			<i class="fa fa-tag"></i> {{label.name}}
 		</div>
-		<div ng-if="results.length === 0"
-				 style="color:red" class="label">
-			<i class="fa fa-heart"></i>
-		</div>
-	</mdt-cell>
-	<mdt-cell>
-		<span
-			ng-repeat="label in issue.labels  | filter: {color: 'eb6420'}">
-			<span
-				style="background-color:#{{label.color}}" class="label">
-				<i class="fa fa-tag"></i> {{label.name}}
-			</span>
-		</span>
 	</mdt-cell>
 </mdt-row>
 </mdt-table>
