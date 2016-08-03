@@ -38,6 +38,7 @@ var cssFilesToInject = [
   'node_modules/nvd3/build/nv.d3.css',
   'node_modules/mdi/css/materialdesignicons.min.css',
   'node_modules/mdDataTable/dist/md-data-table-style.css',
+  'node_modules/bootstrap/dist/css/bootstrap.css',
   'styles/**/*.css'
 ];
 
@@ -72,6 +73,7 @@ var jsFilesToInject = [
   'node_modules/md-data-table/dist/md-data-table.js',
   'node_modules/angular-material-icons/angular-material-icons.min.js',
   'node_modules/md-data-table/dist/md-data-table-templates.js',
+  'node_modules/bootstrap/dist/js/bootstrap.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
