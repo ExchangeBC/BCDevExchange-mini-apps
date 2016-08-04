@@ -3,7 +3,6 @@
 
 		<div id="open-issues-panel" class="panel panel-default">
 			<div class="panel-heading"><b>Open ({{ v.openIssues.length }})</b></div>
-
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -19,38 +18,25 @@
 						</thead>
 						<tbody>
 						<tr ng-repeat="issue in v.openIssues">
-							<td><a href="/programs/{{issue.program}}">{{issue.program}}</a></td>
+							<td>{{issue.program}}</td>
 							<td><a href="{{issue.url}}">{{issue.title}}</a></td>
 							<td class="hidden-phone" style="text-align: left">
-								<div
-									ng-repeat="label in issue.labels | filter: {name: 'help wanted'}"
-									style="background-color:#{{label.color}}" class="label">
-									<i class="fa fa-tag"></i> {{label.name}}
-								</div>
+								<span style="background-color:#128A0C" class="label"> <i class="fa fa-tag"></i> help wanted </span>
 							</td>
 							<td>
-								<div
-									ng-repeat="label in issue.labels | filter:{color:'0052cc'} as results"
-									style="background-color:#{{label.color}}" class="label">
-									<i class="fa fa-tag"></i> {{label.name}}
-								</div>
-								<div ng-if="results.length === 0"
-										 style="color:red" class="label">
+								<span ng-if="issue.earn.length > 0" ng-repeat="name in issue.earn" style="background-color:#0052cc" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
+								<span ng-if="issue.earn.length === 0" style="color:red" class="label">
 									<i class="fa fa-heart"></i>
-								</div>
-
+								</span>
 							</td>
 							<td class="hidden-phone">
-									<span
-										ng-repeat="label in issue.labels  | filter: {color: 'eb6420'}">
-										<span
-											style="background-color:#{{label.color}}" class="label">
-											<i class="fa fa-tag"></i> {{label.name}}
-										</span>
-									</span>
+								<span ng-repeat="name in issue.skill" style="background-color:#eb6420" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
 							</td>
 							<td></td>
-
 						</tr>
 						<tr ng-if="v.openIssues.length === 0">
 							<td colspan="6">There are currently no open issues.</td>
@@ -61,10 +47,8 @@
 			</div>
 		</div>
 
-		<div id="assigned-issues-panel" class="panel panel-default"
-				 ng-if="v.assignedIssues && v.assignedIssues.length>0">
-			<div class="panel-heading"><b>In Progress</b></div>
-
+		<div id="assigned-issues-panel" class="panel panel-default">
+			<div class="panel-heading"><b>In Progress ({{v.assignedIssues.length}})</b></div>
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -80,98 +64,129 @@
 						</thead>
 						<tbody>
 						<tr ng-repeat="issue in v.assignedIssues">
-							<td><a href="/programs/{{issue.program}}">{{issue.program}}</a></td>
+							<td>{{issue.program}}</td>
 							<td><a href="{{issue.url}}">{{issue.title}}</a></td>
 							<td style="text-align: left" class="hidden-phone">
-						<span
-							ng-repeat="label in issue.labels | filter: {name: 'help wanted'}"
-							style="background-color:#{{label.color}}" class="label">
-							<i class="fa fa-tag"></i> {{label.name}}
-						</span>
+								<span style="background-color:#128A0C" class="label"> <i class="fa fa-tag"></i> help wanted </span>
 							</td>
 							<td>
-						<span
-							ng-repeat="label in issue.labels | filter:{color:'0052cc'} as results"
-							style="background-color:#{{label.color}}" class="label">
-							<i class="fa fa-tag"></i> {{label.name}}
-						</span>
-
-								<div ng-if="results.length === 0"
-										 style="color:red" class="label">
+								<span ng-if="issue.earn.length > 0" ng-repeat="name in issue.earn" style="background-color:#0052cc" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
+								<span ng-if="issue.earn.length === 0" style="color:red" class="label">
 									<i class="fa fa-heart"></i>
-								</div>
-
+								</span>
 							</td>
 							<td class="hidden-phone">
-									<span
-										ng-repeat="label in issue.labels  | filter: {color: 'eb6420'}">
-										<span
-											style="background-color:#{{label.color}}" class="label">
-											<i class="fa fa-tag"></i> {{label.name}}
-										</span>
-									</span>
+								<span ng-repeat="name in issue.skill" style="background-color:#eb6420" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
 							</td>
 							<td class="hidden-phone">
 								<img alt="{{issue.assignee.login}}" style="width: 48px; height: 48px; border-radius: 5px;" src="{{issue.assignee.avatar_url }}"/>
 							</td>
 						</tr>
+						<tr ng-if="v.assignedIssues.length === 0">
+							<td colspan="6">There are currently no in progress issues.</td>
+						</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+		</div>
 
+		<div id="blocked-issues-panel" class="panel panel-default">
+			<div class="panel-heading"><b>Blocked ({{v.blocked.length}})</b></div>
+			<div class="panel-body">
+				<div class="table-responsive-bleh">
+					<table class="table table-striped">
+						<thead>
+						<tr>
+							<th style="width: 10%">Partner</th>
+							<th style="width: 20%">Issue</th>
+							<th style="width: 10%;" class="hidden-phone"></th>
+							<th>Earn</th>
+							<th class="hidden-phone">Skills Required</th>
+							<th style="width: 10%;" class="hidden-phone">Claimed by</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="issue in v.blocked">
+							<td>{{issue.program}}</td>
+							<td><a href="{{issue.url}}">{{issue.title}}</a></td>
+							<td style="text-align: left" class="hidden-phone">
+								<span style="background-color:#128A0C" class="label"> <i class="fa fa-tag"></i> help wanted </span>
+							</td>
+							<td>
+								<span ng-if="issue.earn.length > 0" ng-repeat="name in issue.earn" style="background-color:#0052cc" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
+								<span ng-if="issue.earn.length === 0" style="color:red" class="label">
+									<i class="fa fa-heart"></i>
+								</span>
+							</td>
+							<td class="hidden-phone">
+								<span ng-repeat="name in issue.skill" style="background-color:#eb6420" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
+							</td>
+							<td class="hidden-phone">
+								<img alt="{{issue.assignee.login}}" style="width: 48px; height: 48px; border-radius: 5px;" src="{{issue.assignee.avatar_url }}"/>
+							</td>
+						</tr>
+						<tr ng-if="v.blocked.length === 0">
+							<td colspan="6">There are currently no blocked issues.</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 
 		<div id="closed-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>Done</b></div>
-
+			<div class="panel-heading"><b>Completed</b></div>
 			<div class="panel-body">
 				<div ng-if="v.closedIssues && v.closedIssues.length>0">
 					<div class="table-responsive-bleh">
 						<table class="table table-striped">
-							<thead>
-							<tr>
-								<th style="width:10%">Partner</th>
-								<th style="width:20%">Issue</th>
-								<th style="width:10%" class="hidden-phone">Closed Date</th>
-								<!--column alignment hack - cover your eyes!-->
-								<th style="width:11%"  >Earned</th>
-								<th class="hidden-phone">Skills Required</th>
-								<th style="width:10%" ></th>
-							</tr>
-							</thead>
-							<tbody>
-							<tr ng-repeat="issue in v.closedIssues">
-								<td><a href="/programs/{{issue.program}}">{{issue.program}}</a></td>
-								<td><a href="{{issue.url}}">{{issue.title}}</a>
-								</td>
-								<td class="hidden-phone" style="white-space: nowrap">
-									{{issue.closed_at | date:'yyyy-MM-dd' }}
-								</td>
-								<td>
-									<span
-										ng-repeat="label in issue.labels | filter:{color:'0052cc'} as results"
-										style="background-color:#{{label.color}}" class="label">
-										<i class="fa fa-tag"></i> {{label.name}}
-									</span>
-									<span ng-if="results.length === 0"
-												style="color:red" class="label">
-										<i class="fa fa-heart"></i>
-									</span>
-
-								</td>
-								<td class="hidden-phone">
-									<span
-										ng-repeat="label in issue.labels  | filter: {color: 'eb6420'}">
-										<span
-											style="background-color:#{{label.color}}" class="label">
-											<i class="fa fa-tag"></i> {{label.name}}
-										</span>
-									</span>
-								</td>
-								<td></td>
-							</tr>
-							</tbody>
+						<thead>
+						<tr>
+							<th style="width:10%">Partner</th>
+							<th style="width:20%">Issue</th>
+							<th style="width:10%" class="hidden-phone">Closed Date</th>
+							<!--column alignment hack - cover your eyes!-->
+							<th style="width:11%"  >Earned</th>
+							<th class="hidden-phone">Skills Required</th>
+							<th style="width:10%" ></th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="issue in v.closedIssues">
+							<td>{{issue.program}}</td>
+							<td><a href="{{issue.url}}">{{issue.title}}</a>
+							</td>
+							<td class="hidden-phone" style="white-space: nowrap">
+								{{issue.closed_at | date:'yyyy-MM-dd' }}
+							</td>
+							<td>
+								<span ng-if="issue.earn.length > 0" ng-repeat="name in issue.earn" style="background-color:#0052cc" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
+								<span ng-if="issue.earn.length === 0" style="color:red" class="label">
+									<i class="fa fa-heart"></i>
+								</span>
+							</td>
+							<td class="hidden-phone">
+								<span ng-repeat="name in issue.skill" style="background-color:#eb6420" class="label">
+									<i class="fa fa-tag"></i> {{name}}
+								</span>
+							</td>
+							<td></td>
+						</tr>
+						<tr ng-if="v.blocked.length === 0">
+							<td colspan="6">There are currently no completed issues.</td>
+						</tr>
+						</tbody>
 						</table>
 					</div>
 				</div>

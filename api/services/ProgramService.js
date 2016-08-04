@@ -108,18 +108,6 @@ var getPrograms = function (title) {
 			return (el.visible === 'yes' && (!title || el.title === title));
 		});
 	});
-	// return new Promise (function (resolve, reject) {
-	// 	client
-	// 	.repo (configuration.programListingPath)
-	// 	.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
-	// 		var programYaml;
-	// 		try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
-	// 		catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
-	// 		return resolve (programYaml.filter (function (el) {
-	// 			return (el.visible === 'yes' && (!title || el.title === title));
-	// 		}));
-	// 	});
-	// });
 };
 exports.getPrograms = getPrograms;
 // -------------------------------------------------------------------------
@@ -131,12 +119,11 @@ var getIssuesForProgram = function (program, opts) {
 	return new Promise (function (resolve, reject) {
 		if (!program.githubUrl || program.githubUrl === 'undefined') return resolve ([]);
 		var repo = program.githubUrl.replace (/^.*github\.com\//, '');
-		// console.log ('program githubUrl = ', repo);
 		var mrepo = client.repo (repo);
-		// console.log (mrepo);
-		mrepo.issues ({per_page: 500, page:1}, function (err, issues) {
-			// console.log ("=============================================");
-			// console.log ('program title = ', program.title);
+		//
+		// Get all states, but only those with a label of help wanted
+		//
+		mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
 			if (err) {
 				console.log ('Error: ',program.title, ' ', repo, ' ', err.message);
 				resolve ([]);
@@ -150,14 +137,6 @@ var getIssuesForProgram = function (program, opts) {
 			}
 			else resolve ([]);
 		});
-		// mrepo.issues ({
-		// 	filter: opts.filter,
-		// 	state: opts.state,
-		// 	sort: 'created'
-		// },
-		// function (err, a, b) {
-		// 	console.log (err, a, b);
-		// });
 	});
 };
 exports.getIssuesForProgram = getIssuesForProgram;
@@ -213,243 +192,52 @@ exports.getIssues = function (programName, opts) {
 
 // -------------------------------------------------------------------------
 //
-// categorize issues
+// categorize and decorate issues
+//
+// issues get seperated out into the following categories:
+// States:
+// 		open / closed / in progress / blocked
+// 		open and closed are states, but the other two are psudo states
+//		indicated by tags
+//      NOTE: we ONLY look at issues with tags of 'help wanted' (this happens
+//            prior to this routine being run, these are pre-filtered)
+// Tags:
+// 		skill:  these are indicated by colour 'eb6420', and to future proof
+//				this we also look for 'skill:*'
+//		earn:   these tags are indicated by the colour '0052cc' or 'earn:*'
+//
 //
 // -------------------------------------------------------------------------
 exports.categorizeIssues = function (issues) {
-	var ret = {state:{},label:{},data:[]};
+	console.log ('categorizing issues');
+	var ret = {open:[],closed:[],inprogress:[],blocked:[]};
 	_.each (issues, function (i) {
-
-		ret.data.push (i);
-
-		var state = i.state.toLowerCase();
-		// console.log (state);
+		console.log ('issue: ', i);
+		//
+		// get the lowercase label names and state
+		//
 		var labels = i.labels.map (function (l) {return l.name.toLowerCase();});
-		// console.log (labels);
-
-		if (!ret.state[state]) ret.state[state] = [];
-		ret.state[state].push (i);
-
-		_.each (labels, function (label) {
-			if (!ret.label[label]) ret.label[label] = [];
-			ret.label[label].push (i);
+		var state = i.state.toLowerCase();
+		var result;
+		//
+		// decide if closed, blocked, in progress, or open, all disjoint sets
+		//
+		if (state === 'closed') ret.closed.push (i);
+		else if (!!~labels.indexOf ('blocked')) ret.blocked.push (i);
+		else if (!!~labels.indexOf ('in progress')) ret.inprogress.push (i);
+		else ret.open.push (i);
+		//
+		// now decorate skills and earn arrays
+		//
+		i.skill = [];
+		i.earn  = [];
+		_.each (i.labels, function (label) {
+			if (label.color === 'eb6420') i.skill.push (label.name);
+			else if (label.color === '0052cc') i.earn.push (label.name);
+			else if ((result = label.name.match (/^skill:(.*)$/))) i.skill.push (result[1]);
+			else if ((result = label.name.match (/^earn:(.*)$/))) i.earn.push (result[1]);
 		});
-
 	});
 	return ret;
 };
 
-// exports.getProgramsFromArray = function (programList, success, error) {
-//   async.concat(programList, exports.getPrograms, function (err, results) {
-// 	if (err)
-// 	  error(err)
-// 	else {
-
-// 	  // filter out invisible
-// 	  var i = 0
-// 	  while (i < results.length) {
-// 		var program = results[i]
-// 		if (program.visible !== "yes" &&
-// 		  program.visible !== "y" &&
-// 		  program.visible !== "true") {
-
-// 		  // remove from result
-// 		  results.splice(i, 1)
-
-// 		  // decrement the counter
-// 		  i--
-// 		}
-// 		i++
-// 	  }
-// 	  success(results)
-// 	}
-//   })
-// }
-
-// exports.getProgramsO = function (program, callback) {
-
-//   if (program.type === "github-file") {
-// 	exports.getGitHubFileProgram(program, callback)
-//   } else {
-// 	console.error("Configuration error, unknown program type: " + program.type)
-//   }
-
-// }
-
-// exports.getGitHubFileProgram = function (ghConfig, callback) {
-//   var options = {
-// 	url: 'https://api.github.com/' + ghConfig.url + "?client_id=" + config.github.clientID + "&client_secret=" + config.github.clientSecret,
-// 	headers: {
-// 	  'User-Agent': config.github.clientApplicationName
-// 	}
-//   }
-//   request(options, function (error, response, body) {
-// 	if (!error &&
-// 	  typeof response !== 'undefined' &&
-// 	  response.statusCode === 200) {
-
-// 	  // parse out the yaml from content block
-// 	  var json = JSON.parse(body)
-// 	  var decodedContent = new Buffer(json.content, 'base64').toString('ascii')
-// 	  var programYaml
-
-// 	  try {
-// 		programYaml = yaml.safeLoad(decodedContent)
-
-// 	  } catch (requestError) {
-// 		var message = 'Error while parsing yaml program file from: ' + options.url + '. message: ' + requestError.message
-// 		console.error(message)
-// 		return callback(message)
-// 	  }
-// 	  // remove extraneous info from result
-// 	  async.concat(programYaml, parseGitHubFileResults, function (err, results) {
-// 		return callback(err, results)
-// 	  })
-// 	} else {
-// 	  console.error('Error while fetching GitHub content: %s. response: %s. body: %s', error, response, body)
-// 	  return callback(error)
-// 	}
-//   })
-// }
-
-// function parseGitHubFileResults(result, callback) {
-//   var transformed = {
-// 	"title": result.title,
-// 	"description": result.description,
-// 	"owner": result.owner,
-// 	"logo": result.logo,
-// 	"tags": [],
-// 	"url": result.url,
-// 	"id": result.id,
-// 	"visible": result.visible
-//   }
-
-//   if (result.tags) {
-// 	var i = 0
-// 	while (i < result.tags.length) {
-// 	  transformed.tags[i] = {
-// 		"display_name": result.tags[i]
-// 	  }
-// 	  transformed.tags[i].id = crypto.createHash('md5').update(result.tags[i]).digest("hex")
-// 	  i++
-// 	}
-//   }
-//   return callback(null, transformed)
-
-// }
-
-// exports.getGitHubList = function (ghRepo, item, cb) {
-//   var url = 'https://api.github.com/repos/' + ghRepo + item + "&client_id=" + config.github.clientID + "&client_secret=" + config.github.clientSecret
-//   var statsResArr = []
-//   var retryCnt = 0
-//   var queryGitHub = function (url, cb) {
-// 	var options = {
-// 	  url: url,
-// 	  headers: {
-// 		'User-Agent': config.github.clientApplicationName
-// 	  }
-// 	}
-// 	request(options, cb)
-//   }
-//   var parseRes = function (error, response, body) {
-// 	if (!error &&
-// 	  typeof response !== 'undefined') {
-// 	  switch (response.statusCode) {
-// 		case 200:
-// 		  retryCnt = 0
-// 		  Array.prototype.push.apply(statsResArr, JSON.parse(body))
-// 		  var matchUrl
-// 		  if (response.headers.link && (matchUrl = response.headers.link.match(/<(https:\/\/api.*)>;\s+rel="next"/))) {
-// 			url = matchUrl[1]
-// 			queryGitHub(url, parseRes)
-// 		  }
-// 		  else {
-// 			return cb(null, statsResArr)
-// 		  }
-// 		  break
-// 		case 202:
-// 		  if(retryCnt++ < 5){
-// 			// retry in 100ms
-// 			console.info('received response code 202. Retry.')
-// 			setTimeout(function () {
-// 			  queryGitHub(url, parseRes)
-// 			}, 100)
-// 			break
-// 		  }
-// 		default:
-// 		  console.error('Error fetching GitHub content for %s: %s. response: %s. body: %s', ghRepo + item, error, JSON.stringify(response), body)
-// 		  return cb(error || response.statusCode)
-// 	  }
-// 	} else {
-// 	  console.error('Error fetching GitHub content for %s: %s. response: %s. body: %s', ghRepo + item, error, JSON.stringify(response), body)
-// 	  return cb(error || response.statusCode)
-// 	}
-//   }
-//   queryGitHub(url, parseRes)
-// }
-
-
-// exports.getProgramDetails = function (progData, callback) {
-
-//   var deferred = Q.defer()
-//   // Call github for stats
-//   var githubStatsUrl = progData.githubStatsUrl || progData.githubUrl
-//   if (!githubStatsUrl) {
-// 	setTimeout(function () {
-// 	  deferred.resolve({})
-// 	}, 0)
-// 	return deferred.promise.nodeify(callback)
-//   }
-
-//   var ghRepo = githubStatsUrl.substr(githubStatsUrl.indexOf('github.com') + 11)
-//   async.parallel([function (cb) {
-// 	exports.getGitHubList(ghRepo, '/contributors?per_page=100', cb)
-//   },
-// 	function (cb) {
-// 	  exports.getGitHubList(ghRepo, '/issues?state=all&per_page=100', cb)
-// 	}], function (err, resArr) {
-// 	var res = {}
-// 	try {
-// 	  res.contributors = resArr[0].length
-// 	} catch (ex) {
-// 	}
-// 	try {
-// 	  var issuesPrArr = resArr[1]
-// 	  res.prs = _.reduce(issuesPrArr, function (result, item) {
-// 		return result + ((item.pull_request && item.state === 'closed') ? 1 : 0)
-// 	  }, 0)
-
-// 	  res.issues = _.reduce(issuesPrArr, function (result, item) {
-// 		return result + ((!item.pull_request && item.state === 'open') ? 1 : 0)
-// 	  }, 0)
-
-// 	  // find help wanted issues
-// 	  res.helpWantedIssues = issuesPrArr.filter(function (e, i, a) {
-// 		if (e.pull_request || e.state !== 'open') {
-// 		  return false
-// 		}
-// 		var helpIdx = _.findIndex(e.labels, function (e, i, a) {
-// 		  var name = e.name
-// 		  return name === 'help wanted'
-// 		})
-// 		return helpIdx >= 0
-// 	  })
-
-// 	  // find closed help wanted issues
-// 	  res.closedHelpWantedIssues = issuesPrArr.filter(function (e, i, a) {
-// 		if (e.pull_request || e.state !== 'closed') {
-// 		  return false
-// 		}
-// 		var helpIdx = _.findIndex(e.labels, function (e, i, a) {
-// 		  var name = e.name
-// 		  return name === 'help wanted'
-// 		})
-// 		return helpIdx >= 0
-// 	  })
-
-// 	} catch (ex) {
-// 	}
-// 	deferred.resolve(res)
-//   })
-//   return deferred.promise.nodeify(callback)
-// }

@@ -27,8 +27,7 @@ var sbapp = angular.module('sbapp', [
   'ngMaterial',
   'nvd3',
   'ngSails',
-  'ngMessages',
-  'mdDataTable'
+  'ngMessages'
 ]);
 
 sbapp
@@ -100,22 +99,19 @@ sbapp
           templateUrl  : 'app/views/apps/developers.html',
           data         : {authorizedRoles: [USER_ROLES.all]},
           resolve      : {
-            issuesdata : function ($resource, $http, $stateParams) {
+            issues : function ($resource, $http, $stateParams) {
               // return $resource ('/api/issues/:program').get ({});
               var program = $stateParams.program || '';
               return $http ({method:'GET', url:'/api/issues/'+program});
             }
           },
           controllerAs : 'v',
-          controller   : function ($scope, issuesdata) {
+          controller   : function ($scope, issues) {
             var v = this;
-            var issues = issuesdata.data;
-            // console.log ('issues = ', issues);
-            // $scope.issues         = issues;
-            v.closedIssues = issues.state.closed || [];
-            v.openIssues   = issues.state.open || [];
-            v.assignedIssues = issues.label['in progress'] || [];
-            // $scope.$apply ();
+            v.closedIssues   = issues.closed || [];
+            v.openIssues     = issues.open || [];
+            v.blockedIssues  = issues.blocked || [];
+            v.assignedIssues = issues.inprogress || [];
           }
         })
       ;
