@@ -4,7 +4,7 @@ FROM node:4.4.3-wheezy
 WORKDIR /app/
 ADD package.json /app/
 ADD Gruntfile.js /app/
-RUN npm install
+RUN npm install npm -g && npm install
 ADD . .
 
 RUN adduser --system devex && chown -R devex:0 . && chmod -R 770 .
