@@ -1,7 +1,7 @@
 
 var github = require('octonode');
 var yaml = require('js-yaml');
-var getCached = true;
+var getCached = false;
 var myCached = require ('../services/cached.json');
 
 module.exports = {

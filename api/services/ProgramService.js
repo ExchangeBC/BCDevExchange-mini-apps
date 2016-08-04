@@ -29,11 +29,7 @@ var github = require('octonode');
 // 	id     : 'abcdefg',
 // 	secret : 'gfedcba'
 // });
-var client = github.client ({
-	username     : 'ccoldwell',
-	password : '1qazse4'
-});
-// var client = github.client ();
+var client = github.client ();
 
 var configuration = {
 	programListingPath : 'BCDevExchange/BCDevExchange-Programs',
@@ -123,7 +119,8 @@ var getIssuesForProgram = function (program, opts) {
 		//
 		// Get all states, but only those with a label of help wanted
 		//
-		mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
+		mrepo.issues ({state:'all', per_page: 500, page:1}, function (err, issues) {
+		// mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
 			if (err) {
 				console.log ('Error: ',program.title, ' ', repo, ' ', err.message);
 				resolve ([]);
