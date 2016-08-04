@@ -38,7 +38,7 @@ var configuration = {
 	programListingUrl : 'http://bcdevexchange-dev.pathfinder.gov.bc.ca/directory'
 };
 
-var byGITHUB = true;
+var byGITHUB = false;
 
 // -------------------------------------------------------------------------
 //
@@ -119,8 +119,8 @@ var getIssuesForProgram = function (program, opts) {
 		//
 		// Get all states, but only those with a label of help wanted
 		//
-		mrepo.issues ({state:'all', per_page: 500, page:1}, function (err, issues) {
-		// mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
+		// mrepo.issues ({state:'all', per_page: 500, page:1}, function (err, issues) {
+		mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
 			if (err) {
 				console.log ('Error: ',program.title, ' ', repo, ' ', err.message);
 				resolve ([]);

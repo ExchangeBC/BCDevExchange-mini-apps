@@ -19,7 +19,7 @@
 						<tbody>
 						<tr ng-repeat="issue in v.openIssues">
 							<td>{{issue.program}}</td>
-							<td><a href="{{issue.url}}">{{issue.title}}</a></td>
+							<td><a href="{{issue.html_url}}">{{issue.title}}</a></td>
 							<td class="hidden-phone" style="text-align: left">
 								<span style="background-color:#128A0C" class="label"> <i class="fa fa-tag"></i> help wanted </span>
 							</td>
@@ -65,7 +65,7 @@
 						<tbody>
 						<tr ng-repeat="issue in v.assignedIssues">
 							<td>{{issue.program}}</td>
-							<td><a href="{{issue.url}}">{{issue.title}}</a></td>
+							<td><a href="{{issue.html_url}}">{{issue.title}}</a></td>
 							<td style="text-align: left" class="hidden-phone">
 								<span style="background-color:#128A0C" class="label"> <i class="fa fa-tag"></i> help wanted </span>
 							</td>
@@ -113,7 +113,7 @@
 						<tbody>
 						<tr ng-repeat="issue in v.blocked">
 							<td>{{issue.program}}</td>
-							<td><a href="{{issue.url}}">{{issue.title}}</a></td>
+							<td><a href="{{issue.html_url}}">{{issue.title}}</a></td>
 							<td style="text-align: left" class="hidden-phone">
 								<span style="background-color:#128A0C" class="label"> <i class="fa fa-tag"></i> help wanted </span>
 							</td>
@@ -163,7 +163,7 @@
 						<tbody>
 						<tr ng-repeat="issue in v.closedIssues">
 							<td>{{issue.program}}</td>
-							<td><a href="{{issue.url}}">{{issue.title}}</a>
+							<td><a href="{{issue.html_url}}">{{issue.title}}</a>
 							</td>
 							<td class="hidden-phone" style="white-space: nowrap">
 								{{issue.closed_at | date:'yyyy-MM-dd' }}
