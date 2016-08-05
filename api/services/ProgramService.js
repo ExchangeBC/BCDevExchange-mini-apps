@@ -29,7 +29,8 @@ var github = require('octonode');
 // 	id     : 'abcdefg',
 // 	secret : 'gfedcba'
 // });
-var client = github.client ();
+
+var client = github.client(sails.config.github.accessKey);
 
 var configuration = {
 	programListingPath : 'BCDevExchange/BCDevExchange-Programs',
@@ -38,7 +39,7 @@ var configuration = {
 	programListingUrl : 'http://bcdevexchange-dev.pathfinder.gov.bc.ca/directory'
 };
 
-var byGITHUB = false;
+var byGITHUB = true;
 
 // -------------------------------------------------------------------------
 //

@@ -6,6 +6,7 @@ ADD package.json /app/
 ADD Gruntfile.js /app/
 RUN npm install npm -g && npm install
 ADD . .
+RUN ./node_modules/.bin/grunt buildProd
 
 RUN adduser --system devex && chown -R devex:0 . && chmod -R 770 .
 
@@ -15,6 +16,6 @@ VOLUME /app
 
 EXPOSE 1337
 
-ENV NODE_ENV=production
+ENV sails_hooks__grunt=false NODE_ENV=production GITHUB_ACCESS_KEY=""
 
 CMD ["node","app.js"]

@@ -29,7 +29,7 @@ limitations under the License.
 
 module.exports = {
 
-  hookTimeout: 300000,   // 5 mins
+  hookTimeout: 120000,   // 2 mins
 
   /***************************************************************************
    * Set the default database connection for models in the production        *
@@ -51,7 +51,7 @@ module.exports = {
    ***************************************************************************/
 
    log: {
-     level: "silly"
+     level: "silent"
    }
 
 };
