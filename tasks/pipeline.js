@@ -113,4 +113,7 @@ module.exports.templateFilesToInject = templateFilesToInject.map(function (tplPa
   return require('path').join('assets/', tplPath);
 });
 
+module.exports.jsFilesToCopy = jsFilesToInject;
+module.exports.cssFilesToCopy = cssFilesToInject;
+
 

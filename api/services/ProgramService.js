@@ -47,9 +47,10 @@ var byGITHUB = true;
 //
 // -------------------------------------------------------------------------
 var getAllPrograms = function () {
-	console.log ('getting all programs');
+	sails.log.debug ('getting all programs');
 
 	if (byGITHUB) {
+		sails.log.debug("Loading all program configurations from GitHub...");
 		return new Promise (function (resolve, reject) {
 			client
 			.repo (configuration.programListingPath)
@@ -80,8 +81,7 @@ var getAllPrograms = function () {
 					reject (new Error (configuration.programListingUrl+': '+res.statusCode+' '+body));
 				}
 				else {
-					console.log (configuration.programListingUrl+': '+res.statusCode+' ');
-					console.log (body);
+					sails.log.debug (configuration.programListingUrl+': '+res.statusCode+' ');
 					resolve (JSON.parse(body));
 				}
 			});
@@ -123,11 +123,11 @@ var getIssuesForProgram = function (program, opts) {
 		// mrepo.issues ({state:'all', per_page: 500, page:1}, function (err, issues) {
 		mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
 			if (err) {
-				console.log ('Error: ',program.title, ' ', repo, ' ', err.message);
+				sails.log.debug ('Error: ',program.title, ' ', repo, ' ', err.message);
 				resolve ([]);
 			}
 			else if (issues) {
-				console.log ('Number of issues:', issues.length);
+				sails.log.debug ('Number of issues:', issues.length);
 				resolve (issues.map (function (i) {
 					i.program = program.title;
 					return i;
@@ -161,7 +161,7 @@ exports.getIssuesForPrograms = function (programs, opts) {
 };
 var getIssuesForPrograms = function (opts) {
 	return function (programs) {
-		// 	console.log (programs);
+		// 	sails.log.debug (programs);
 		return exports.getIssuesForPrograms (programs, opts);
 	};
 };
@@ -175,7 +175,7 @@ exports.getIssues = function (programName, opts) {
 		getPrograms (programName)
 		.then (getIssuesForPrograms (opts))
 		.then (function (arrayofarrays) {
-			// console.log (arrayofarrays);
+			// sails.log.debug (arrayofarrays);
 			return arrayofarrays.reduce (function (prevArray, currArray) {
 				prevArray = currArray.reduce (function (p, element) {
 					p.push (element);
@@ -207,10 +207,10 @@ exports.getIssues = function (programName, opts) {
 //
 // -------------------------------------------------------------------------
 exports.categorizeIssues = function (issues) {
-	console.log ('categorizing issues');
+	sails.log.debug ('categorizing issues');
 	var ret = {open:[],closed:[],inprogress:[],blocked:[]};
 	_.each (issues, function (i) {
-		console.log ('issue: ', i);
+		sails.log.debug ('issue: ', i);
 		//
 		// get the lowercase label names and state
 		//
