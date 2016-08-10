@@ -108,10 +108,13 @@ sbapp
           controllerAs : 'v',
           controller   : function ($scope, issues) {
             var v = this;
-            v.closedIssues   = issues.closed || [];
-            v.openIssues     = issues.open || [];
-            v.blockedIssues  = issues.blocked || [];
-            v.assignedIssues = issues.inprogress || [];
+            console.log ('issues', issues);
+            console.log ('issues.closed.length = ', issues.data.closed.length);
+            v.closedIssues   = issues.data.closed || [];
+            v.openIssues     = issues.data.open || [];
+            v.blockedIssues  = issues.data.blocked || [];
+            v.assignedIssues = issues.data.inprogress || [];
+            // $scope.$apply ();
           }
         })
       ;
