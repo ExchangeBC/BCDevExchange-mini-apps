@@ -8,15 +8,10 @@ Setup:
 ```
 my-computer$ docker build -t miniapps .
 my-computer$ have a coffee
-my-computer$ docker run --rm -v `pwd`:/app -w /app -p 1337:1337 -ti miniapps bash
-image$ npm install
-image$ bower install --allow-root
-image$ sails lift --models.migrate=create --verbose
+my-computer$ ./dev.sh
+container$ GITHUB_ACCESS_KEY=27c38d279192e56b3138b03c0b3ffe4e81f3e5a0 sails lift --models.migrate=create --verbose
 ```
 
-Note:
-On OSX there are still issues with running npm from the image into a mounted file system.  The errors are known bugs being addressed by Docker, but are still present as of version 1.12.0-rc4-beta20.
-If this affects you then you may need to run npm install and perhaps even bower install from your machine:
 ```
 my-computer$ docker build -t miniapps .
 my-computer$ have a coffee
@@ -40,7 +35,7 @@ my-computer$ docker run --rm -v `pwd`:/app -w /app -p 1337:1337 -ti miniapps bas
 image$ sails lift --models.migrate=create --verbose
 ```
 
-If new npm modules are required you will have to re-run npm install or bower or whatever is appropriate.
+If new npm modules are required you will have to re-run npm install *in the container* or whatever is appropriate.
 
 
 

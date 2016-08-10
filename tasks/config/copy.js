@@ -36,6 +36,9 @@
  *   https://github.com/gruntjs/grunt-contrib-copy
  *
  */
+
+var pipeline = require('../pipeline');
+
 module.exports = function(grunt) {
 
   grunt.config.set('copy', {
@@ -49,7 +52,13 @@ module.exports = function(grunt) {
         {
           expand: true,
           cwd: '.',
-          src: ['node_modules/**/*'],
+          src: pipeline.jsFilesToCopy,
+          dest: '.tmp/public'
+        },
+        {
+          expand: true,
+          cwd: '.',
+          src: pipeline.cssFilesToCopy,
           dest: '.tmp/public'
         }
         //{
