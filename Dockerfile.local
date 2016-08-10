@@ -4,7 +4,7 @@ FROM node:4.4.3-wheezy
 WORKDIR /app/
 ADD package.json /app/
 ADD Gruntfile.js /app/
-RUN npm install -g sails && npm install
+RUN npm install -g sails && npm install npm -g && npm install
 ADD . .
 
 VOLUME /app
