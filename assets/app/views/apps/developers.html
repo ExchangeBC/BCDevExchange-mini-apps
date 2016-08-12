@@ -59,7 +59,7 @@
 							<th style="width: 10%;" class="hidden-phone"></th>
 							<th>Earn</th>
 							<th class="hidden-phone">Skills Required</th>
-							<th style="width: 10%;" class="hidden-phone">Claimed by</th>
+							<!-- <th style="width: 10%;" class="hidden-phone">Claimed by</th> -->
 						</tr>
 						</thead>
 						<tbody>
@@ -82,12 +82,12 @@
 									<i class="fa fa-tag"></i> {{name}}
 								</span>
 							</td>
-							<td class="hidden-phone">
+<!-- 							<td class="hidden-phone">
 								<img alt="{{issue.assignee.login}}" style="width: 48px; height: 48px; border-radius: 5px;" src="{{issue.assignee.avatar_url }}"/>
 							</td>
-						</tr>
+ -->						</tr>
 						<tr ng-if="v.assignedIssues.length === 0">
-							<td colspan="6">There are currently no in progress issues.</td>
+							<td colspan="5">There are currently no in progress issues.</td>
 						</tr>
 						</tbody>
 					</table>
