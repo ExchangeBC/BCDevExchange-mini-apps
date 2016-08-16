@@ -2,7 +2,7 @@
 	<div class="col-sm-12 col-md-12 main" id="allissues">
 
 		<div id="open-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>Open ({{ v.openIssues.length }})</b></div>
+			<div class="panel-heading"><h2>Open Opportunities ({{ v.openIssues.length }})</h2></div>
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -48,7 +48,7 @@
 		</div>
 
 		<div id="assigned-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>In Progress ({{v.assignedIssues.length}})</b></div>
+			<div class="panel-heading"><h2>In Progress Opportunities ({{v.assignedIssues.length}})</h2></div>
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -96,7 +96,7 @@
 		</div>
 
 		<div id="blocked-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>Blocked ({{v.blockedIssues.length}})</b></div>
+			<div class="panel-heading"><h2>Blocked Opportunities ({{v.blockedIssues.length}})</h2></div>
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -144,7 +144,7 @@
 		</div>
 
 		<div id="closed-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>Completed  ({{v.closedIssues.length}})</b></div>
+			<div class="panel-heading"><h2>Closed Opportunities ({{v.closedIssues.length}})</h2></div>
 			<div class="panel-body">
 				<div ng-if="v.closedIssues && v.closedIssues.length>0">
 					<div class="table-responsive-bleh">
