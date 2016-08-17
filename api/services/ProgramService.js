@@ -30,16 +30,17 @@ var github = require('octonode');
 // 	secret : 'gfedcba'
 // });
 
-var client = github.client(sails.config.github.accessKey);
+var client = (sails.config.github.accessKey) ? github.client(sails.config.github.accessKey) : github.client ();
 
 var configuration = {
 	programListingPath : 'BCDevExchange/BCDevExchange-Programs',
 	programListingYAML : 'Code/directory.yml',
 	programListingBranch : 'master',
 	programListingUrl : 'http://bcdevexchange-dev.pathfinder.gov.bc.ca/directory'
+	                  // http://bcdevexchange-dev.pathfinder.gov.bc.ca/directory
 };
 
-var byGITHUB = true;
+var byGITHUB = false;
 
 // -------------------------------------------------------------------------
 //
@@ -47,41 +48,47 @@ var byGITHUB = true;
 //
 // -------------------------------------------------------------------------
 var getAllPrograms = function () {
-	sails.log.debug ('getting all programs');
+
 
 	if (byGITHUB) {
-		sails.log.debug("Loading all program configurations from GitHub...");
+		// sails.log.debug("Loading all program configurations from GitHub...");
 		return new Promise (function (resolve, reject) {
 			client
 			.repo (configuration.programListingPath)
 			.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
 				var programYaml;
+				// sails.log.debug ('getAllPrograms: complete, now parsing yaml');
 				try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
 				catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
+				// console.log ('finished parsing yaml');
 				return resolve (programYaml);
 			});
 		});
 	} else {
 		return new Promise (function (resolve, reject) {
 			var request = require ('request');
+			// console.log ('issuing request to ',configuration.programListingUrl);
 			request({
 				url    : configuration.programListingUrl,
 				method : 'GET',
 				headers: {
-					'host': 'localhost:4000',
+					// 'host': 'localhost:4000',
 		    		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
-		    		'Content-Type': 'application/json'
+		    		// 'Content-Type': 'application/json'
 		  		}
 			}, function (err, res, body) {
 				if (err) {
+					// console.log ('caught error ', err);
 					err.fullpath = configuration.programListingUrl;
 					reject (err);
 				}
 				else if (res.statusCode != 200) {
+					// console.log ('caught non 200 response ');
 					reject (new Error (configuration.programListingUrl+': '+res.statusCode+' '+body));
 				}
 				else {
-					sails.log.debug (configuration.programListingUrl+': '+res.statusCode+' ');
+					// sails.log.debug ('getAllPrograms: complete');
+					// sails.log.debug (configuration.programListingUrl+': '+res.statusCode+' ');
 					resolve (JSON.parse(body));
 				}
 			});
@@ -99,10 +106,14 @@ exports.getAllPrograms = getAllPrograms;
 // -------------------------------------------------------------------------
 var getPrograms = function (title) {
 	title = title || '';
+	// sails.log.debug ('getPrograms: start');
 	return getAllPrograms ()
 	.then (function (programYaml) {
+		// sails.log.debug ('getPrograms: complete, looking for title:', title);
 		return programYaml.filter (function (el) {
-			return (el.visible === 'yes' && (!title || el.title === title));
+			var useme = ( (el.visible === 'yes' || el.visible == true) && (!title || el.title === title));
+			// console.log ('title=', el.title, 'visible=', el.visible, 'useme=', useme);
+			return useme;
 		});
 	});
 };
@@ -120,14 +131,15 @@ var getIssuesForProgram = function (program, opts) {
 		//
 		// Get all states, but only those with a label of help wanted
 		//
+		// console.log ('getting issues from github for ',program.title);
 		// mrepo.issues ({state:'all', per_page: 500, page:1}, function (err, issues) {
 		mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
 			if (err) {
-				sails.log.debug ('Error: ',program.title, ' ', repo, ' ', err.message);
+				// sails.log.debug ('Error: ',program.title, ' ', repo, ' ', err.message);
 				resolve ([]);
 			}
 			else if (issues) {
-				sails.log.debug ('Number of issues:', issues.length);
+				// sails.log.debug ('Number of issues:',program.title, issues.length);
 				resolve (issues.map (function (i) {
 					i.program = program.title;
 					return i;
@@ -161,7 +173,8 @@ exports.getIssuesForPrograms = function (programs, opts) {
 };
 var getIssuesForPrograms = function (opts) {
 	return function (programs) {
-		// 	sails.log.debug (programs);
+		// sails.log.debug ('number of programs: ',programs.length);
+		// sails.log.debug ('getIssuesForPrograms: start');
 		return exports.getIssuesForPrograms (programs, opts);
 	};
 };
@@ -175,7 +188,7 @@ exports.getIssues = function (programName, opts) {
 		getPrograms (programName)
 		.then (getIssuesForPrograms (opts))
 		.then (function (arrayofarrays) {
-			// sails.log.debug (arrayofarrays);
+			// sails.log.debug ('getIssuesForPrograms: complete');
 			return arrayofarrays.reduce (function (prevArray, currArray) {
 				prevArray = currArray.reduce (function (p, element) {
 					p.push (element);
@@ -207,16 +220,17 @@ exports.getIssues = function (programName, opts) {
 //
 // -------------------------------------------------------------------------
 exports.categorizeIssues = function (issues) {
-	sails.log.debug ('categorizing issues');
+	// sails.log.debug ('getIssuesForPrograms: start: ',issues.length);
 	var ret = {open:[],closed:[],inprogress:[],blocked:[]};
 	_.each (issues, function (i) {
-		sails.log.debug ('issue: ', i);
+		// sails.log.debug ('issue: ', i);
 		//
 		// get the lowercase label names and state
 		//
 		var labels = i.labels.map (function (l) {return l.name.toLowerCase();});
 		var state = i.state.toLowerCase();
 		var result;
+		// sails.log.debug ('state labels: ', state, labels);
 		//
 		// decide if closed, blocked, in progress, or open, all disjoint sets
 		//
@@ -235,7 +249,10 @@ exports.categorizeIssues = function (issues) {
 			else if ((result = label.name.match (/^skill:(.*)$/))) i.skill.push (result[1]);
 			else if ((result = label.name.match (/^earn:(.*)$/))) i.earn.push (result[1]);
 		});
+		// sails.log.debug (i.skill, i.earn);
+		// sails.log.debug (Array(50).join('-'));
 	});
+	// sails.log.debug (ret);
 	return ret;
 };
 

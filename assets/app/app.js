@@ -106,12 +106,39 @@ sbapp
             }
           },
           controllerAs : 'v',
-          controller   : function ($scope, issues) {
+          controller   : function ($scope, issues, $document, $timeout) {
             var v = this;
-            v.closedIssues   = issues.closed || [];
-            v.openIssues     = issues.open || [];
-            v.blockedIssues  = issues.blocked || [];
-            v.assignedIssues = issues.inprogress || [];
+            console.log ('issues.closed.length = ', issues.data.closed.length);
+            v.closedIssues   = issues.data.closed || [];
+            v.openIssues     = issues.data.open || [];
+            v.blockedIssues  = issues.data.blocked || [];
+            v.assignedIssues = issues.data.inprogress || [];
+
+
+            //
+            // HACK HACK KLUDGE KLUDGE
+            //
+            // dear future Chris,
+            // please leave this alone. It seems that the nested one is needed
+            // for some unknown reason, and who cares?
+            //
+
+            $timeout(function() {
+            $timeout(function() {
+              var B = document.body,
+              H = document.documentElement,
+              height;
+
+                console.log( (document.height || 0), B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
+                height = Math.max( (document.height || 0), B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
+                height = $document.height();
+                height = $document.find ('#allissues').height();
+              // var height = document.body.scrollHeight;
+              // height = 200;
+              console.log ('scroll height = ', height+'px');
+              window.parent.postMessage(document.body.scrollHeight+'px', '*');
+            });
+            });
           }
         })
       ;

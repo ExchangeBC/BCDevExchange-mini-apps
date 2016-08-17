@@ -1,8 +1,8 @@
 <md-content>
-	<div class="col-sm-12 col-md-12 main">
+	<div class="col-sm-12 col-md-12 main" id="allissues">
 
 		<div id="open-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>Open ({{ v.openIssues.length }})</b></div>
+			<div class="panel-heading"><h2>Open Opportunities ({{ v.openIssues.length }})</h2></div>
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -48,7 +48,7 @@
 		</div>
 
 		<div id="assigned-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>In Progress ({{v.assignedIssues.length}})</b></div>
+			<div class="panel-heading"><h2>In Progress Opportunities ({{v.assignedIssues.length}})</h2></div>
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -59,7 +59,7 @@
 							<th style="width: 10%;" class="hidden-phone"></th>
 							<th>Earn</th>
 							<th class="hidden-phone">Skills Required</th>
-							<th style="width: 10%;" class="hidden-phone">Claimed by</th>
+							<!-- <th style="width: 10%;" class="hidden-phone">Claimed by</th> -->
 						</tr>
 						</thead>
 						<tbody>
@@ -82,12 +82,12 @@
 									<i class="fa fa-tag"></i> {{name}}
 								</span>
 							</td>
-							<td class="hidden-phone">
+<!-- 							<td class="hidden-phone">
 								<img alt="{{issue.assignee.login}}" style="width: 48px; height: 48px; border-radius: 5px;" src="{{issue.assignee.avatar_url }}"/>
 							</td>
-						</tr>
+ -->						</tr>
 						<tr ng-if="v.assignedIssues.length === 0">
-							<td colspan="6">There are currently no in progress issues.</td>
+							<td colspan="5">There are currently no in progress issues.</td>
 						</tr>
 						</tbody>
 					</table>
@@ -96,7 +96,7 @@
 		</div>
 
 		<div id="blocked-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>Blocked ({{v.blocked.length}})</b></div>
+			<div class="panel-heading"><h2>Blocked Opportunities ({{v.blockedIssues.length}})</h2></div>
 			<div class="panel-body">
 				<div class="table-responsive-bleh">
 					<table class="table table-striped">
@@ -111,7 +111,7 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr ng-repeat="issue in v.blocked">
+						<tr ng-repeat="issue in v.blockedIssues">
 							<td>{{issue.program}}</td>
 							<td><a href="{{issue.html_url}}">{{issue.title}}</a></td>
 							<td style="text-align: left" class="hidden-phone">
@@ -134,7 +134,7 @@
 								<img alt="{{issue.assignee.login}}" style="width: 48px; height: 48px; border-radius: 5px;" src="{{issue.assignee.avatar_url }}"/>
 							</td>
 						</tr>
-						<tr ng-if="v.blocked.length === 0">
+						<tr ng-if="v.blockedIssues.length === 0">
 							<td colspan="6">There are currently no blocked issues.</td>
 						</tr>
 						</tbody>
@@ -144,7 +144,7 @@
 		</div>
 
 		<div id="closed-issues-panel" class="panel panel-default">
-			<div class="panel-heading"><b>Completed</b></div>
+			<div class="panel-heading"><h2>Closed Opportunities ({{v.closedIssues.length}})</h2></div>
 			<div class="panel-body">
 				<div ng-if="v.closedIssues && v.closedIssues.length>0">
 					<div class="table-responsive-bleh">
@@ -183,7 +183,7 @@
 							</td>
 							<td></td>
 						</tr>
-						<tr ng-if="v.blocked.length === 0">
+						<tr ng-if="v.closedIssues.length === 0">
 							<td colspan="6">There are currently no completed issues.</td>
 						</tr>
 						</tbody>

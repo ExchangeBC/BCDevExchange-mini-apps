@@ -22,6 +22,9 @@ module.exports = {
 		.then (function (results) {
 			console.log ('about to send results');
 			res.json (results);
+		})
+		.catch (function (err) {
+			res.json (err);
 		});
 	}
 };
