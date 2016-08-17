@@ -9,7 +9,7 @@
         }
     },
     "spec": {
-        "host": "embed.bcdevexchange.org",
+        "host": "embed-bcdevexchange-prod.pathfinder.gov.bc.ca",
         "to": {
             "kind": "Service",
             "name": "mini-apps-prod"
