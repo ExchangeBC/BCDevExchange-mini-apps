@@ -1,0 +1,21 @@
+{
+    "kind": "Route",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "bcdevexchange-mini-apps-prod",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "bcdevexchange-mini-apps"
+        }
+    },
+    "spec": {
+        "host": "embed.bcdevexchange.org",
+        "to": {
+            "kind": "Service",
+            "name": "mini-apps-prod"
+        },
+        "port": {
+            "targetPort": "1337-tcp"
+        }
+    }
+}

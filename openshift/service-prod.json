@@ -1,0 +1,33 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "mini-apps-prod",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "bcdevexchange-mini-apps"
+        },
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewApp"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "1337-tcp",
+                "protocol": "TCP",
+                "port": 1337,
+                "targetPort": 1337
+            }
+        ],
+        "selector": {
+            "app": "bcdevexchange-mini-apps",
+            "deploymentconfig": "bcdevexchange-mini-apps-prod"
+        },
+        "type": "ClusterIP",
+        "sessionAffinity": "None"
+    },
+    "status": {
+        "loadBalancer": {}
+    }
+}

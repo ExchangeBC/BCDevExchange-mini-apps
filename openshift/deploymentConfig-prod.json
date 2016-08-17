@@ -1,0 +1,93 @@
+{
+    "kind": "DeploymentConfig",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "bcdevexchange-mini-apps-prod",
+        "creationTimestamp": null,
+        "labels": {
+            "app": "bcdevexchange-mini-apps"
+        },
+        "annotations": {
+            "openshift.io/generated-by": "OpenShiftNewApp"
+        }
+    },
+    "spec": {
+        "strategy": {
+            "type": "Rolling",
+            "rollingParams": {
+                "updatePeriodSeconds": 1,
+                "intervalSeconds": 1,
+                "timeoutSeconds": 600,
+                "maxUnavailable": "25%",
+                "maxSurge": "25%"
+            },
+            "resources": {}
+        },
+        "triggers": [
+            {
+                "type": "ConfigChange"
+            },
+            {
+                "type": "ImageChange",
+                "imageChangeParams": {
+                    "automatic": true,
+                    "containerNames": [
+                        "bcdevexchange-mini-apps-prod"
+                    ],
+                    "from": {
+                        "kind": "ImageStreamTag",
+                        "namespace": "developers-exchange",
+                        "name": "bcdevexchange-mini-apps:prod"
+                    }
+                }
+            }
+        ],
+        "replicas": 1,
+        "test": false,
+        "selector": {
+            "app": "bcdevexchange-mini-apps",
+            "deploymentconfig": "bcdevexchange-mini-apps-prod"
+        },
+        "template": {
+            "metadata": {
+                "creationTimestamp": null,
+                "labels": {
+                    "app": "bcdevexchange-mini-apps",
+                    "deploymentconfig": "bcdevexchange-mini-apps-prod"
+                },
+                "annotations": {
+                    "openshift.io/container.bcdevexchange-mini-apps.image.entrypoint": "[\"node\"]",
+                    "openshift.io/generated-by": "OpenShiftNewApp"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "bcdevexchange-mini-apps-prod",
+                        "image": " ",
+                        "ports": [
+                            {
+                                "containerPort": 1337,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "env": [
+                            {
+                                "name": "GITHUB_ACCESS_KEY",
+                                "value": ""
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always"
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "securityContext": {}
+            }
+        }
+    },
+    "status": {}
+}
