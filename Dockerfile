@@ -12,7 +12,7 @@ RUN adduser --system devex && chown -R devex:0 . && chmod -R 770 .
 
 USER devex
 
-VOLUME /app
+VOLUME ["/app/api", "/app/assets", "/app/config", "app/tasks", "app/views"]
 
 EXPOSE 1337
 
