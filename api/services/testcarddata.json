@@ -1,0 +1,1422 @@
+[
+    {
+        "id": "57b4c4e55412df3eb6fe06da",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:13:22.588Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [],
+        "idShort": 34,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Alpha Open Opportunities",
+        "pos": 3584,
+        "shortLink": "KRvoRSYZ",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 3,
+            "checkItemsChecked": 0,
+            "comments": 0,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57b4c51549e289da301a1649"
+        ],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/KRvoRSYZ",
+        "subscribed": false,
+        "url": "https://trello.com/c/KRvoRSYZ/34-alpha-open-opportunities"
+    },
+    {
+        "id": "57b4c5ed9dd12dbf70d92508",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:16:46.925Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [],
+        "idShort": 35,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Alpha Stack-Button",
+        "pos": 5376,
+        "shortLink": "xdA2YloO",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 1,
+            "checkItemsChecked": 0,
+            "comments": 0,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57b4c62cb6a21fe03eea15a6"
+        ],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/xdA2YloO",
+        "subscribed": false,
+        "url": "https://trello.com/c/xdA2YloO/35-alpha-stack-button"
+    },
+    {
+        "id": "57aba10b8712e44237f3dc94",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:03:27.155Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [],
+        "idShort": 32,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Create a Model for Standing RFQ - Conceptual design",
+        "pos": 7168,
+        "shortLink": "Ij5hfJAW",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57aba1356d9a30ff77464fb1"
+        ],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/Ij5hfJAW",
+        "subscribed": false,
+        "url": "https://trello.com/c/Ij5hfJAW/32-create-a-model-for-standing-rfq-conceptual-design"
+    },
+    {
+        "id": "57aa16e1ae64bf8d70d79419",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:09:04.722Z",
+        "desc": "Conceptual design of model for self serve RFQ",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [],
+        "idShort": 33,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Create BCDevEx Standing Order users and orgs who sign up to the Exchange",
+        "pos": 7936,
+        "shortLink": "F6eHp1pF",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 1,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57aa16e2ae64bf8d70d7941a"
+        ],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/F6eHp1pF",
+        "subscribed": false,
+        "url": "https://trello.com/c/F6eHp1pF/33-create-bcdevex-standing-order-users-and-orgs-who-sign-up-to-the-exchange"
+    },
+    {
+        "id": "5764163f92bc8e7ac1f0e1db",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:03:29.473Z",
+        "desc": "As a product owner I need to be able to see an aggregated representation of my teams progress so that I can determine if they are going to be able to make their release dates or see if any teams are blocked so that I can help resolve any problems.\n\nSub task of https://trello.com/c/W8EBsb8Y",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [],
+        "idShort": 11,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869",
+            "57a3be3f84e677fd36cdcbf9"
+        ],
+        "name": "Issue agregator",
+        "pos": 8704,
+        "shortLink": "W8EBsb8Y",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 7,
+            "checkItemsChecked": 6,
+            "comments": 4,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "576416548f68905c18915d99"
+        ],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            },
+            {
+                "id": "57a3be3f84e677fd36cdcbf9",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "Sub-task",
+                "color": "black",
+                "uses": 6
+            }
+        ],
+        "shortUrl": "https://trello.com/c/W8EBsb8Y",
+        "subscribed": false,
+        "url": "https://trello.com/c/W8EBsb8Y/11-issue-agregator"
+    },
+    {
+        "id": "57640d0ff3f1cbec48aad7d5",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-07-20T16:52:25.562Z",
+        "desc": "OBSERVED PROBLEM:\nhttps://trello.com/c/VT5wUFZt\nWe have observed that the BCDevExchange isn’t meeting the needs of government program areas to create/maintain open source projects, a key step to participate in Code With Us, which is causing more hands-on effort by the BCDevExchange, limiting our ability to scale Code With Us.\n\nHow might we improve so that the information we provide is more successful based on program areas being able to navigate the experience with less support from the BCDevExchange.\n",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [
+            "556287b0abdfe7c4b386d1c7"
+        ],
+        "idShort": 16,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "578fac4984e677fd36992008",
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Easy to find guide to creating an open source project and Code With Us",
+        "pos": 16384,
+        "shortLink": "mAh2Obkm",
+        "badges": {
+            "votes": 1,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 5,
+            "checkItemsChecked": 0,
+            "comments": 2,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57640d6d9513d7d0f1e01da8"
+        ],
+        "idMembers": [
+            "55198788f21956c2d76b790d"
+        ],
+        "labels": [
+            {
+                "id": "578fac4984e677fd36992008",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "Code With Us",
+                "color": "green",
+                "uses": 1
+            },
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/mAh2Obkm",
+        "subscribed": false,
+        "url": "https://trello.com/c/mAh2Obkm/16-easy-to-find-guide-to-creating-an-open-source-project-and-code-with-us"
+    },
+    {
+        "id": "5769942e1a6ca53159cfdbbd",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-07-20T21:18:20.263Z",
+        "desc": "As a program owner who is new to the exchange I would like to have a \"wizard' like feature that helps me work my way through the many steps necessary to create an open source project so that I don't miss a step and consequently fall foul of policy.",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [
+            "556287b0abdfe7c4b386d1c7"
+        ],
+        "idShort": 17,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Wizard for creating an open source project",
+        "pos": 32768,
+        "shortLink": "iJ7NKedV",
+        "badges": {
+            "votes": 1,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/iJ7NKedV",
+        "subscribed": false,
+        "url": "https://trello.com/c/iJ7NKedV/17-wizard-for-creating-an-open-source-project"
+    },
+    {
+        "id": "5769b8c90f47a086b7b0932a",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-07-20T21:26:18.019Z",
+        "desc": "As a program owner I would like to conduct a search for developers who have signed up to the exchange and have the skill sets required to work on my P4Ps so that I can send notifications of published opportunities.",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [
+            "556287b0abdfe7c4b386d1c7"
+        ],
+        "idShort": 19,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Users would like to search for developer's skills",
+        "pos": 65536,
+        "shortLink": "Zd9MllAc",
+        "badges": {
+            "votes": 1,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/Zd9MllAc",
+        "subscribed": false,
+        "url": "https://trello.com/c/Zd9MllAc/19-users-would-like-to-search-for-developer-s-skills"
+    },
+    {
+        "id": "57a3cad59fdf0f9b8a0a497e",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-04T23:08:11.118Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [],
+        "idShort": 22,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Port \"API list and console\" to OpenShift",
+        "pos": 131072,
+        "shortLink": "aFX5xueA",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 0,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/aFX5xueA",
+        "subscribed": false,
+        "url": "https://trello.com/c/aFX5xueA/22-port-api-list-and-console-to-openshift"
+    },
+    {
+        "id": "57b374613b4e3218a90e181c",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-16T20:15:34.688Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b7",
+        "idMembersVoted": [],
+        "idShort": 31,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Add Piwik analytics to DevEx site",
+        "pos": 262144,
+        "shortLink": "LsSvVber",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 0,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/LsSvVber",
+        "subscribed": false,
+        "url": "https://trello.com/c/LsSvVber/31-add-piwik-analytics-to-devex-site"
+    },
+    {
+        "id": "5790f2b0a175afeca0914178",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-10T20:20:22.476Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b8",
+        "idMembersVoted": [],
+        "idShort": 20,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Engagement stream added to Product Roadmap",
+        "pos": 114688,
+        "shortLink": "wHE9Gx2D",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 2,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57964bea354670c31eb3008d"
+        ],
+        "idMembers": [
+            "5761e93cc0fc5da40e618bd1"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/wHE9Gx2D",
+        "subscribed": false,
+        "url": "https://trello.com/c/wHE9Gx2D/20-engagement-stream-added-to-product-roadmap"
+    },
+    {
+        "id": "57aa3f3151e238283a6939bc",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:13:53.244Z",
+        "desc": "Sub task of https://trello.com/c/KRvoRSYZ",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b8",
+        "idMembersVoted": [],
+        "idShort": 26,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869",
+            "57a3be3f84e677fd36cdcbf9"
+        ],
+        "name": "Determine the Integration Points between Open Opportunities and Dev Ex App",
+        "pos": 245760,
+        "shortLink": "BK99dsvy",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": true,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "577d43f86de70beb6e4fe6a6",
+            "50743ae0d9251e1a7c64e35e"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            },
+            {
+                "id": "57a3be3f84e677fd36cdcbf9",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "Sub-task",
+                "color": "black",
+                "uses": 6
+            }
+        ],
+        "shortUrl": "https://trello.com/c/BK99dsvy",
+        "subscribed": true,
+        "url": "https://trello.com/c/BK99dsvy/26-determine-the-integration-points-between-open-opportunities-and-dev-ex-app"
+    },
+    {
+        "id": "57ab8bc5402470436a4a2c32",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:14:09.366Z",
+        "desc": "Sub task of https://trello.com/c/KRvoRSYZ",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b8",
+        "idMembersVoted": [],
+        "idShort": 28,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869",
+            "57a3be3f84e677fd36cdcbf9"
+        ],
+        "name": "How to Deploy Open Opportunities",
+        "pos": 249856,
+        "shortLink": "9MEkQhOy",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": true,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "577d43f86de70beb6e4fe6a6",
+            "50743ae0d9251e1a7c64e35e"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            },
+            {
+                "id": "57a3be3f84e677fd36cdcbf9",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "Sub-task",
+                "color": "black",
+                "uses": 6
+            }
+        ],
+        "shortUrl": "https://trello.com/c/9MEkQhOy",
+        "subscribed": true,
+        "url": "https://trello.com/c/9MEkQhOy/28-how-to-deploy-open-opportunities"
+    },
+    {
+        "id": "57aa41148e95c34289ddd835",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:16:15.578Z",
+        "desc": "Sub task of https://trello.com/c/xdA2YloO",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b8",
+        "idMembersVoted": [],
+        "idShort": 27,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869",
+            "57a3be3f84e677fd36cdcbf9"
+        ],
+        "name": "Determine Integration Points for Stack Button, Open Opportunites and Dev Ex App",
+        "pos": 253952,
+        "shortLink": "HCA2OVkl",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": true,
+            "fogbugz": "",
+            "checkItems": 1,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57aa411ebb742ea2f6ee9c2a"
+        ],
+        "idMembers": [
+            "577d43f86de70beb6e4fe6a6",
+            "50743ae0d9251e1a7c64e35e"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            },
+            {
+                "id": "57a3be3f84e677fd36cdcbf9",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "Sub-task",
+                "color": "black",
+                "uses": 6
+            }
+        ],
+        "shortUrl": "https://trello.com/c/HCA2OVkl",
+        "subscribed": true,
+        "url": "https://trello.com/c/HCA2OVkl/27-determine-integration-points-for-stack-button-open-opportunites-and-dev-ex-app"
+    },
+    {
+        "id": "57ab9dd0d5610eb705d9bf2b",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-18T19:51:39.323Z",
+        "desc": "As a casual observer I need a visual overview of the activity level on the Dev Exchange Trello boards without having to leave the Road Map page.\n\nSee attached image of wire frame.\nExact design and location determined Mark",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b8",
+        "idMembersVoted": [],
+        "idShort": 29,
+        "idAttachmentCover": "",
+        "manualCoverAttachment": true,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Add Kan-Board Activity to each epic on roadmap",
+        "pos": 319488,
+        "shortLink": "WQOZUssd",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": true,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 0,
+            "attachments": 1,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "577d43f86de70beb6e4fe6a6"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/WQOZUssd",
+        "subscribed": true,
+        "url": "https://trello.com/c/WQOZUssd/29-add-kan-board-activity-to-each-epic-on-roadmap"
+    },
+    {
+        "id": "57aa010329c78665696b7776",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-16T17:31:35.741Z",
+        "desc": "As a product owner I need to replatform the BCDevEx app so that I can model the behaviour of a modern agile scrum team with regard to CI/CR and DevOps process. I also need to be able to allow DevEx partners to manage their own content as well as facilitate scaling of agile teams.",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b9",
+        "idMembersVoted": [],
+        "idShort": 23,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": true,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Deploy the re-platformed DevEx app",
+        "pos": 57344,
+        "shortLink": "YN42GM39",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": true,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 3,
+            "attachments": 1,
+            "description": true,
+            "due": "2016-08-26T19:00:00.000Z"
+        },
+        "due": "2016-08-26T19:00:00.000Z",
+        "idChecklists": [],
+        "idMembers": [
+            "577d43f86de70beb6e4fe6a6"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/YN42GM39",
+        "subscribed": true,
+        "url": "https://trello.com/c/YN42GM39/23-deploy-the-re-platformed-devex-app"
+    },
+    {
+        "id": "57aa3eea1706c8148eac9a1d",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-17T20:14:31.068Z",
+        "desc": "Sub task of https://trello.com/c/KRvoRSYZ",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400b9",
+        "idMembersVoted": [],
+        "idShort": 25,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869",
+            "57a3be3f84e677fd36cdcbf9"
+        ],
+        "name": "Determine if we will use Open Opportunities Framework for CWU and SWU.",
+        "pos": 180224,
+        "shortLink": "8QXqyjIu",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": true,
+            "fogbugz": "",
+            "checkItems": 2,
+            "checkItemsChecked": 0,
+            "comments": 4,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57aa3eea1706c8148eac9a21"
+        ],
+        "idMembers": [
+            "577d43f86de70beb6e4fe6a6",
+            "50743ae0d9251e1a7c64e35e"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            },
+            {
+                "id": "57a3be3f84e677fd36cdcbf9",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "Sub-task",
+                "color": "black",
+                "uses": 6
+            }
+        ],
+        "shortUrl": "https://trello.com/c/8QXqyjIu",
+        "subscribed": true,
+        "url": "https://trello.com/c/8QXqyjIu/25-determine-if-we-will-use-open-opportunities-framework-for-cwu-and-swu"
+    },
+    {
+        "id": "57a3be2d5fa0ec452e7e0c81",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-12T16:29:17.055Z",
+        "desc": "Subtask of https://trello.com/c/mqrBsoMr ",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400bb",
+        "idMembersVoted": [],
+        "idShort": 21,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869",
+            "57a3be3f84e677fd36cdcbf9"
+        ],
+        "name": "Amend the design of the BCDevEx roadmap to match that of the BCDevEx app.",
+        "pos": 8192,
+        "shortLink": "kiyHqfOp",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "50743ae0d9251e1a7c64e35e"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            },
+            {
+                "id": "57a3be3f84e677fd36cdcbf9",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "Sub-task",
+                "color": "black",
+                "uses": 6
+            }
+        ],
+        "shortUrl": "https://trello.com/c/kiyHqfOp",
+        "subscribed": false,
+        "url": "https://trello.com/c/kiyHqfOp/21-amend-the-design-of-the-bcdevex-roadmap-to-match-that-of-the-bcdevex-app"
+    },
+    {
+        "id": "576183ee9599996f03d8794a",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-12T16:29:44.495Z",
+        "desc": "As a service owner I want to be able to show my stakeholders (and community) how my team created a technical service and product roadmap using the lessons learned from the previous year so that my stakeholders understand the extent to which my team has modeled modern development behaviours.",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400bb",
+        "idMembersVoted": [],
+        "idShort": 10,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Publishing the DevEx roadmap",
+        "pos": 131071,
+        "shortLink": "mqrBsoMr",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 14,
+            "checkItemsChecked": 14,
+            "comments": 9,
+            "attachments": 2,
+            "description": true,
+            "due": "2016-07-07T19:00:00.000Z"
+        },
+        "due": "2016-07-07T19:00:00.000Z",
+        "idChecklists": [
+            "576184d1d225d510a0b94315"
+        ],
+        "idMembers": [
+            "5761e93cc0fc5da40e618bd1"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/mqrBsoMr",
+        "subscribed": false,
+        "url": "https://trello.com/c/mqrBsoMr/10-publishing-the-devex-roadmap"
+    },
+    {
+        "id": "578fa72585c76531ce48effd",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-12T16:30:28.676Z",
+        "desc": "Stand up 18f code and review for registration, notification and assignment functionality.",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "57adf99b3514550d3f27a5f6",
+        "idMembersVoted": [],
+        "idShort": 18,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Standup Open Opportunities",
+        "pos": 5376,
+        "shortLink": "o1osNg6Y",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 2,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "56b3d6725d725c7846233bff"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/o1osNg6Y",
+        "subscribed": false,
+        "url": "https://trello.com/c/o1osNg6Y/18-standup-open-opportunities"
+    },
+    {
+        "id": "57aa0143c0f4600072ad0f85",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-12T16:30:30.724Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "57adf99b3514550d3f27a5f6",
+        "idMembersVoted": [],
+        "idShort": 24,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Look for Open Opportunity delta's",
+        "pos": 6272,
+        "shortLink": "xSndKP84",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 2,
+            "checkItemsChecked": 2,
+            "comments": 3,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "57aa01e4e838ca62de8cbde3"
+        ],
+        "idMembers": [
+            "56b3d6725d725c7846233bff"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/xSndKP84",
+        "subscribed": false,
+        "url": "https://trello.com/c/xSndKP84/24-look-for-open-opportunity-delta-s"
+    },
+    {
+        "id": "574f6d896cc05cbc3ba2c36a",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-12T16:30:41.996Z",
+        "desc": "As a product owner I need to replatform the BCDevEx app so that I can model the behaviour of a modern agile scrum team with regard to CI/CR and DevOps process. I also need to be able to allow DevEx partners to manage their own content as well as facilitate scaling of agile teams.",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "57adf99b3514550d3f27a5f6",
+        "idMembersVoted": [],
+        "idShort": 6,
+        "idAttachmentCover": "",
+        "manualCoverAttachment": true,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Re-platforming of the DevEx app",
+        "pos": 6720,
+        "shortLink": "sMIMrUB5",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": true,
+            "fogbugz": "",
+            "checkItems": 8,
+            "checkItemsChecked": 8,
+            "comments": 3,
+            "attachments": 1,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "577588ce34a107584c4ebb10"
+        ],
+        "idMembers": [
+            "577d43f86de70beb6e4fe6a6"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/sMIMrUB5",
+        "subscribed": true,
+        "url": "https://trello.com/c/sMIMrUB5/6-re-platforming-of-the-devex-app"
+    },
+    {
+        "id": "577c32cdb1b2ce17abad0ee8",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-08-12T16:30:36.148Z",
+        "desc": "Create a mockup of the \"in progress\" page design which can be used for research purposed",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "57adf99b3514550d3f27a5f6",
+        "idMembersVoted": [],
+        "idShort": 13,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Mock up \"In progress\" screen",
+        "pos": 7168,
+        "shortLink": "wkz6bOmH",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 1,
+            "checkItemsChecked": 0,
+            "comments": 2,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [
+            "577c3590bdc62a4eb3bf1337"
+        ],
+        "idMembers": [
+            "55198788f21956c2d76b790d"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/wkz6bOmH",
+        "subscribed": false,
+        "url": "https://trello.com/c/wkz6bOmH/13-mock-up-in-progress-screen"
+    },
+    {
+        "id": "57698aa0e275fe292cc70fc1",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-06-28T20:37:21.099Z",
+        "desc": "As a user I need to be able to create another headed section in the roadmap so that I can add an intro section",
+        "descData": {
+            "emoji": {}
+        },
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400bc",
+        "idMembersVoted": [],
+        "idShort": 12,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Intro section to DevEx roadmap",
+        "pos": 8192,
+        "shortLink": "JV8AD3go",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 3,
+            "attachments": 0,
+            "description": true,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "556287b0abdfe7c4b386d1c7",
+            "50743ae0d9251e1a7c64e35e"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/JV8AD3go",
+        "subscribed": false,
+        "url": "https://trello.com/c/JV8AD3go/12-intro-section-to-devex-roadmap"
+    },
+    {
+        "id": "5750bc9855c75c04335cb86d",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-06-28T20:37:22.657Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400bc",
+        "idMembersVoted": [],
+        "idShort": 1,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Create DevEx roadmap",
+        "pos": 16384,
+        "shortLink": "5IrxR4tg",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 1,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "556287b0abdfe7c4b386d1c7"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/5IrxR4tg",
+        "subscribed": false,
+        "url": "https://trello.com/c/5IrxR4tg/1-create-devex-roadmap"
+    },
+    {
+        "id": "5756f0c694a5d374963db4c5",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-06-28T20:37:23.787Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400bc",
+        "idMembersVoted": [],
+        "idShort": 2,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Create the feature map for the DevEx app",
+        "pos": 81920,
+        "shortLink": "awDzbAv7",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 0,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "556287b0abdfe7c4b386d1c7"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/awDzbAv7",
+        "subscribed": false,
+        "url": "https://trello.com/c/awDzbAv7/2-create-the-feature-map-for-the-devex-app"
+    },
+    {
+        "id": "5756f0b48d79fa6f96e7e081",
+        "checkItemStates": null,
+        "closed": false,
+        "dateLastActivity": "2016-06-28T20:37:25.607Z",
+        "desc": "",
+        "descData": null,
+        "idBoard": "574e1ea08cea9e13617400b6",
+        "idList": "574e1ea08cea9e13617400bc",
+        "idMembersVoted": [],
+        "idShort": 3,
+        "idAttachmentCover": null,
+        "manualCoverAttachment": false,
+        "idLabels": [
+            "5750bcf684e677fd36f7e869"
+        ],
+        "name": "Create the IA for the DevEx app",
+        "pos": 147456,
+        "shortLink": "oychcd1i",
+        "badges": {
+            "votes": 0,
+            "viewingMemberVoted": false,
+            "subscribed": false,
+            "fogbugz": "",
+            "checkItems": 0,
+            "checkItemsChecked": 0,
+            "comments": 0,
+            "attachments": 0,
+            "description": false,
+            "due": null
+        },
+        "due": null,
+        "idChecklists": [],
+        "idMembers": [
+            "556287b0abdfe7c4b386d1c7"
+        ],
+        "labels": [
+            {
+                "id": "5750bcf684e677fd36f7e869",
+                "idBoard": "574e1ea08cea9e13617400b6",
+                "name": "DevEx App",
+                "color": "blue",
+                "uses": 28
+            }
+        ],
+        "shortUrl": "https://trello.com/c/oychcd1i",
+        "subscribed": false,
+        "url": "https://trello.com/c/oychcd1i/3-create-the-ia-for-the-devex-app"
+    }
+]

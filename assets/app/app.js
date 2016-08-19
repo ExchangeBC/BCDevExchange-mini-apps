@@ -94,10 +94,11 @@ sbapp
         // developers app
         //
         // -------------------------------------------------------------------------
-        .state('app.developers', {
+        .state ('app.developers', {
           url          : '/developers/:program',
           templateUrl  : 'app/views/apps/developers.html',
           data         : {authorizedRoles: [USER_ROLES.all]},
+          controllerAs : 'v',
           resolve      : {
             issues : function ($resource, $http, $stateParams) {
               // return $resource ('/api/issues/:program').get ({});
@@ -105,7 +106,6 @@ sbapp
               return $http ({method:'GET', url:'/api/issues/'+program});
             }
           },
-          controllerAs : 'v',
           controller   : function ($scope, issues, $document, $timeout) {
             var v = this;
             console.log ('issues.closed.length = ', issues.data.closed.length);
@@ -120,9 +120,8 @@ sbapp
             //
             // dear future Chris,
             // please leave this alone. It seems that the nested one is needed
-            // for some unknown reason, and who cares?
+            // for some unknown reason.
             //
-
             $timeout(function() {
             $timeout(function() {
               var B = document.body,
@@ -139,6 +138,21 @@ sbapp
               window.parent.postMessage(document.body.scrollHeight+'px', '*');
             });
             });
+          }
+        })
+        .state ('app.cardprogress', {
+          url          : '/cardprogress/:board',
+          templateUrl  : 'app/views/app/cardprogress.html',
+          data         : {authorizedRoles: [USER_ROLES.all]},
+          controllerAs : 'zz',
+          resolve      : {
+            cards      : function ($http, $stateParams) {
+              var board = $stateParams.board || '';
+              return $http ({method:'GET', url:'/api/cardsforboard/'+board});
+            }
+          },
+          controller   : function ($scope, cards) {
+            var trelloKey = '92af62ee176d0fb54fc3b4aa317226c4';
           }
         })
       ;

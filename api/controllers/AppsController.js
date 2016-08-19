@@ -4,6 +4,9 @@ var yaml = require('js-yaml');
 var getCached = false;
 var myCached = require ('../services/cached.json');
 
+var aok = function (res) { return function (o) {res.json (o);}};
+var nok = function (res) { return function (e) {res.json (e);}};
+
 module.exports = {
 
 	openIssues: function (req, res) {
@@ -19,13 +22,11 @@ module.exports = {
 		console.log ('gathering issues for program: '+program);
 		ProgramService.getIssues (program)
 		.then (ProgramService.categorizeIssues)
-		.then (function (results) {
-			console.log ('about to send results');
-			res.json (results);
-		})
-		.catch (function (err) {
-			res.json (err);
-		});
+		.then (aok (res), nok (res));
+	},
+	getCards: function (req, res) {
+		TrelloBoardService.getCardsForBoard (req.param ('board'))
+		.then (aok (res), nok (res));
 	}
 };
 
