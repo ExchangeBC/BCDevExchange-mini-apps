@@ -140,9 +140,14 @@ sbapp
             });
           }
         })
+        // -------------------------------------------------------------------------
+        //
+        // Card Progress From KanBan Trello Baords
+        //
+        // -------------------------------------------------------------------------
         .state ('app.cardprogress', {
           url          : '/cardprogress/:board',
-          templateUrl  : 'app/views/app/cardprogress.html',
+          templateUrl  : 'app/views/apps/cardprogress.html',
           data         : {authorizedRoles: [USER_ROLES.all]},
           controllerAs : 'zz',
           resolve      : {

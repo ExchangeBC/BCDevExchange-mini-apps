@@ -15,7 +15,8 @@
 'use strict'
 
 
-var testme = true;
+var testme = false;
+var authkey = '92af62ee176d0fb54fc3b4aa317226c4';
 
 // -------------------------------------------------------------------------
 //
@@ -24,10 +25,38 @@ var testme = true;
 //
 // -------------------------------------------------------------------------
 exports.getCardsForBoard = function (board) {
+	console.log ('Here with board:', board);
+	// board = '574e1ea08cea9e13617400b6';
+	var uri = 'https://api.trello.com/1/boards/'+board+'/cards?token='+authkey;
 	return new Promise (function (resolve, reject) {
 		//
 		// if testing just return the cached data
 		//
 		if (testme) return resolve (require ('./testcarddata.json'));
+		//
+		// otherwise really do this properly
+		//
+		require ('request')({
+			url    : uri,
+			method : 'GET',
+			headers: {
+				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36',
+				'Content-Type': 'application/json'
+	  		}
+		}, function (err, res, body) {
+			if (err) {
+				console.log ('Trello API error ', err);
+				err.fullpath = uri;
+				reject (err);
+			}
+			else if (res.statusCode != 200) {
+				console.log ('Trello API non 200 response');
+				reject (new Error ('Trello API non 200 response:'+res.statusCode+' '+body));
+			}
+			else {
+				console.log ('Trello API successful call');
+				resolve (JSON.parse(body));
+			}
+		});
 	});
 };

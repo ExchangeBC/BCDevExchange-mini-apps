@@ -63,4 +63,5 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/api/issues/:program?' : 'AppsController.issues',
+  '/api/cardsforboard/:board?' : 'AppsController.cards',
 };

@@ -24,7 +24,7 @@ module.exports = {
 		.then (ProgramService.categorizeIssues)
 		.then (aok (res), nok (res));
 	},
-	getCards: function (req, res) {
+	cards: function (req, res) {
 		TrelloBoardService.getCardsForBoard (req.param ('board'))
 		.then (aok (res), nok (res));
 	}
