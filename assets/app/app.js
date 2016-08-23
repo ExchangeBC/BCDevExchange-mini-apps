@@ -145,19 +145,162 @@ sbapp
         // Card Progress From KanBan Trello Baords
         //
         // -------------------------------------------------------------------------
+        .state ('app.cardprogressstatic', {
+          url          : '/cardprogressstatic/:board',
+          templateUrl  : 'app/views/apps/cardprogressstatic.html',
+          data         : {authorizedRoles: [USER_ROLES.all]},
+        })
         .state ('app.cardprogress', {
           url          : '/cardprogress/:board',
           templateUrl  : 'app/views/apps/cardprogress.html',
           data         : {authorizedRoles: [USER_ROLES.all]},
           controllerAs : 'zz',
           resolve      : {
-            cards      : function ($http, $stateParams) {
+            lists      : function ($http, $stateParams) {
               var board = $stateParams.board || '';
-              return $http ({method:'GET', url:'/api/cardsforboard/'+board});
+              return $http ({method:'GET', url:'/api/listdist/'+board});
             }
           },
-          controller   : function ($scope, cards) {
-            var trelloKey = '92af62ee176d0fb54fc3b4aa317226c4';
+          controller   : function ($scope, $document, $window, lists) {
+            var zz = this;
+            zz.allcards = lists;
+            console.log ('d3 has loaded', window.d3);
+            console.log ('data', lists);
+            var data = lists.data;
+            _.each (data, function (list) {
+              list.count = list.cards.length;
+            });
+            var boardUrl = data[0].boardUrl;
+
+            var maincolours = {
+              done:"#98ac7a", // green
+              backlog:"#81bed6", // blue
+              blocked:"#e99181", // red
+            };
+            var othercolours = [
+            "#d29adf",
+            "#d891b9",
+            "#e5dba7",
+            "#a69dcc",
+            "#d6ab7f",
+            "#a88b88",
+            "#eac2cc"
+            ];
+
+
+            var total = data.reduce (function (prev, curr) {
+              return prev + curr.count;
+            }, 0);
+
+
+            //
+            // first decorate and set indexes depending on state,
+            // we want backlog first, done last, etc.
+            //
+            var i = 0;
+            var colourIndex = 0;
+            var namedStates = {};
+            data.forEach (function (v) {
+              var name = v.name.toLowerCase ();
+              if (maincolours[name]) {
+                console.log ('this is a named colour state:', name);
+                v.colour = maincolours[name];
+                namedStates[name] = v;
+                if (name === 'backlog') v.index = -1;
+                else if (name === 'done') v.index = 99999;
+                else if (name === 'blocked') v.index = 99998;
+              } else {
+                v.colour = othercolours[colourIndex++];
+                v.index = i++;
+              }
+            });
+            //
+            // sort
+            //
+            data.sort (function (a, b) {
+              if (a.index < b.index) return -1;
+              else if (a.index > b.index) return 1;
+              else return 0;
+            });
+
+            console.log ('data:', data);
+
+            var render = function () {
+              var w = window,
+                  d = $document[0],
+                  e = d.documentElement,
+                  g = d.getElementsByTagName('body')[0],
+                  x = w.innerWidth || e.clientWidth || g.clientWidth,
+                  y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+
+
+
+              console.log ('new size x y ', x, y);
+             var linearScale = d3.scale.linear ()
+              .domain ([0, total])
+              .range ([0,x]);
+             //
+              // now in the right order set screen x and width
+              //
+              var prev = 0;
+              data.forEach (function (v) {
+                v.left  = prev;
+                v.width = linearScale (v.count);
+                prev    += v.width;
+              });
+
+              var svgContainer = d3.select ('div#chartid')
+              // var svgContainer = d3.select ('body')
+                .append ('a')
+                .attr ('href', boardUrl)
+                .attr ('target', '_blank')
+                .append ('div')
+                // .classed ('svg-container', true)
+                .append ('svg')
+                .attr('preserveAspectRatio', 'xMinYMin meet')
+                .attr('viewBox', '0 0 '+x+' '+y)
+                .attr ('width', x)
+                .attr ('height', y)
+                .attr('xmlns', 'http://www.w3.org/2000/svg')
+                // .classed ('svg-content-responsive', true)
+                ;
+
+              console.log ('width:', x);
+
+              var rectangles = svgContainer.selectAll("rect")
+                                           .data(data)
+                                           .enter()
+                                           .append("rect");
+//data-toggle="tooltip" data-placement="left" title="Tooltip on left"
+              var rectangleAttributes = rectangles
+                                        .attr("x", function (d) { return d.left; })
+                                        .attr("y", 0)
+                                        .attr("height", 2000)
+                                        .attr("width", function (d) { return d.width; })
+                                        .style("fill", function(d) { return d.colour; })
+                                        .attr ('data-toggle', 'tooltip')
+                                        .attr ('title', function(d) { return d.name; })
+                                        .attr ('data-placement', 'top')
+
+                                        ;
+            };
+
+            angular.element($window).bind('resize', function () {
+              console.log ('I am running now');
+              render ();
+            });
+
+            render ();
+
+            // var onScriptLoad = function () {
+            //   console.log ('d3 has loaded', window.d3);
+            // }
+            // var scriptTag = $document[0].getElementById ('d3script');
+            // scriptTag.onreadystatechange = function () {
+            //   if (this.readyState == 'complete') onScriptLoad();
+            // }
+            // scriptTag.onload = onScriptLoad;
           }
         })
       ;

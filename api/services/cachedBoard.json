@@ -1,0 +1,43 @@
+{
+    "id": "574e1ea08cea9e13617400b6",
+    "name": "DevEx App",
+    "desc": "",
+    "descData": null,
+    "closed": false,
+    "idOrganization": "57487680e6008109c5b3f07b",
+    "pinned": false,
+    "url": "https://trello.com/b/b0goM5r8/devex-app",
+    "shortUrl": "https://trello.com/b/b0goM5r8",
+    "prefs": {
+        "permissionLevel": "public",
+        "voting": "disabled",
+        "comments": "members",
+        "invitations": "members",
+        "selfJoin": true,
+        "cardCovers": true,
+        "cardAging": "regular",
+        "calendarFeedEnabled": false,
+        "background": "blue",
+        "backgroundImage": null,
+        "backgroundImageScaled": null,
+        "backgroundTile": false,
+        "backgroundBrightness": "dark",
+        "backgroundColor": "#0079BF",
+        "canBePublic": true,
+        "canBeOrg": true,
+        "canBePrivate": true,
+        "canInvite": true
+    },
+    "labelNames": {
+        "green": "Code With Us",
+        "yellow": "",
+        "orange": "",
+        "red": "Kick-Start",
+        "purple": "",
+        "blue": "DevEx App",
+        "sky": "",
+        "lime": "",
+        "pink": "",
+        "black": "Sub-task"
+    }
+}

@@ -62,6 +62,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  '/api/issues/:program?' : 'AppsController.issues',
+  '/api/issues/:program?'      : 'AppsController.issues',
   '/api/cardsforboard/:board?' : 'AppsController.cards',
+  '/api/listsforboard/:board?' : 'AppsController.lists',
+  '/api/listdist/:board?'      : 'AppsController.listdist',
 };

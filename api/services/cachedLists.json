@@ -1,0 +1,66 @@
+[
+  {
+    "id": "574e1ea08cea9e13617400b7",
+    "name": "Backlog",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 65535,
+    "subscribed": null
+  },
+  {
+    "id": "574e1ea08cea9e13617400b8",
+    "name": "Sprint Back log",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 131071,
+    "subscribed": null
+  },
+  {
+    "id": "574e1ea08cea9e13617400b9",
+    "name": "In progress",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 147455,
+    "subscribed": null
+  },
+  {
+    "id": "574e1ea08cea9e13617400ba",
+    "name": "Blocked",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 163839,
+    "subscribed": null
+  },
+  {
+    "id": "574e1ea08cea9e13617400bb",
+    "name": "Done",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 327679,
+    "subscribed": null
+  },
+  {
+    "id": "57adf99b3514550d3f27a5f6",
+    "name": "Sprint 24",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 344063,
+    "subscribed": null
+  },
+  {
+    "id": "577d455e33a5e66965421380",
+    "name": "Sprint 23",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 360447,
+    "subscribed": null
+  },
+  {
+    "id": "574e1ea08cea9e13617400bc",
+    "name": "Sprint 22",
+    "closed": false,
+    "idBoard": "574e1ea08cea9e13617400b6",
+    "pos": 393215,
+    "subscribed": null
+  }
+]

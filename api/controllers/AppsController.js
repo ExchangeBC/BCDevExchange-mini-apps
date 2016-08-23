@@ -27,6 +27,14 @@ module.exports = {
 	cards: function (req, res) {
 		TrelloBoardService.getCardsForBoard (req.param ('board'))
 		.then (aok (res), nok (res));
+	},
+	lists: function (req, res) {
+		TrelloBoardService.getListsForBoard (req.param ('board'))
+		.then (aok (res), nok (res));
+	},
+	listdist: function (req, res) {
+		TrelloBoardService.getListDistribution (req.param ('board'))
+		.then (aok (res), nok (res));
 	}
 };
 
