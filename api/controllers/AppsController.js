@@ -19,7 +19,7 @@ module.exports = {
 	issues: function (req, res) {
 		if (getCached) return res.json (myCached);
 		var program = req.params.program || '';
-		console.log ('gathering issues for program: '+program);
+		// console.log ('gathering issues for program: '+program);
 		ProgramService.getIssues (program)
 		.then (ProgramService.categorizeIssues)
 		.then (aok (res), nok (res));

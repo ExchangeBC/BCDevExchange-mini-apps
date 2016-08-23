@@ -98,7 +98,6 @@ var issueRequest = function (uri) {
 				reject (new Error ('Trello API non 200 response:'+res.statusCode+' '+body));
 			}
 			else {
-				console.log ('Trello API successful call');
 				resolve (JSON.parse(body));
 			}
 		});

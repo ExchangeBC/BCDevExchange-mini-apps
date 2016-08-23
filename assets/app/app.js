@@ -108,7 +108,6 @@ sbapp
           },
           controller   : function ($scope, issues, $document, $timeout) {
             var v = this;
-            console.log ('issues.closed.length = ', issues.data.closed.length);
             v.closedIssues   = issues.data.closed || [];
             v.openIssues     = issues.data.open || [];
             v.blockedIssues  = issues.data.blocked || [];
@@ -128,13 +127,13 @@ sbapp
               H = document.documentElement,
               height;
 
-                console.log( (document.height || 0), B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
+                // console.log( (document.height || 0), B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
                 height = Math.max( (document.height || 0), B.scrollHeight, B.offsetHeight,H.clientHeight, H.scrollHeight, H.offsetHeight );
                 height = $document.height();
                 height = $document.find ('#allissues').height();
               // var height = document.body.scrollHeight;
               // height = 200;
-              console.log ('scroll height = ', height+'px');
+              // console.log ('scroll height = ', height+'px');
               window.parent.postMessage(document.body.scrollHeight+'px', '*');
             });
             });
@@ -164,8 +163,6 @@ sbapp
           controller   : function ($scope, $document, $window, lists) {
             var zz = this;
             zz.allcards = lists;
-            console.log ('d3 has loaded', window.d3);
-            console.log ('data', lists);
             var data = lists.data;
             _.each (data, function (list) {
               list.count = list.cards.length;
@@ -203,7 +200,6 @@ sbapp
             data.forEach (function (v) {
               var name = v.name.toLowerCase ();
               if (maincolours[name]) {
-                console.log ('this is a named colour state:', name);
                 v.colour = maincolours[name];
                 namedStates[name] = v;
                 if (name === 'backlog') v.index = -1;
@@ -223,7 +219,6 @@ sbapp
               else return 0;
             });
 
-            console.log ('data:', data);
 
             var render = function () {
               var w = window,
@@ -236,7 +231,6 @@ sbapp
 
 
 
-              console.log ('new size x y ', x, y);
              var linearScale = d3.scale.linear ()
               .domain ([0, total])
               .range ([0,x]);
@@ -266,7 +260,6 @@ sbapp
                 // .classed ('svg-content-responsive', true)
                 ;
 
-              console.log ('width:', x);
 
               var rectangles = svgContainer.selectAll("rect")
                                            .data(data)
@@ -287,20 +280,11 @@ sbapp
             };
 
             angular.element($window).bind('resize', function () {
-              console.log ('I am running now');
               render ();
             });
 
             render ();
 
-            // var onScriptLoad = function () {
-            //   console.log ('d3 has loaded', window.d3);
-            // }
-            // var scriptTag = $document[0].getElementById ('d3script');
-            // scriptTag.onreadystatechange = function () {
-            //   if (this.readyState == 'complete') onScriptLoad();
-            // }
-            // scriptTag.onload = onScriptLoad;
           }
         })
       ;
