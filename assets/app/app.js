@@ -248,9 +248,9 @@ sbapp
               });
 
               var svgContainer = d3.select ('div#chartid')
-                // .append ('a')
-                // .attr ('href', boardUrl)
-                // .attr ('target', '_blank')
+                .append ('a')
+                .attr ('href', boardUrl)
+                .attr ('target', '_blank')
                 .append ('div')
                 // .classed ('svg-container', true)
                 .append ('svg')
@@ -264,34 +264,34 @@ sbapp
 
 
               var rectangles = svgContainer.selectAll("rect")
-                                           .data(data)
-                                           .enter()
-                                           .append("rect");
-                                          ;
-//data-toggle="tooltip" data-placement="left" title="Tooltip on left"
+                .data(data)
+                .enter()
+                .append("rect");
+                ;
               var rectangleAttributes = rectangles
-                                        .attr ("x", function (d) { return d.left; })
-                                        .attr ("y", 0)
-                                        .attr ("height", 2000)
-                                        .attr ("width", function (d) { return d.width; })
-                                        .style("fill", function(d) { return d.colour; })
-                                        .attr ('data-toggle', 'tooltip')
-                                        .attr ('title', function(d) { return d.name; })
-                                        .attr ('data-placement', 'top')
-                                        .attr ('nameid', function (d) { return d.nameid; })
-                                        .on ( {
-                                          mouseover: function (evt) {
-                                            var el = document.getElementById (evt.nameid);
-                                            el.setAttributeNS (null, 'opacity', 1);
-                                            this.setAttributeNS (null, 'opacity' , 0.5);
-                                          },
-                                          mouseout: function (evt) {
-                                            var el = document.getElementById (evt.nameid);
-                                            el.setAttributeNS (null, 'opacity', 0);
-                                            this.setAttributeNS (null, 'opacity' , 1);
-                                          }
-                                        })
-                                        ;
+                .attr ("x", function (d) { return d.left; })
+                .attr ("y", 0)
+                .attr ("height", 2000)
+                .attr ("id", function (d) { return d.nameid + '_rect'})
+                .attr ("width", function (d) { return d.width; })
+                .style("fill", function(d) { return d.colour; })
+                .attr ('data-toggle', 'tooltip')
+                .attr ('title', function(d) { return d.name; })
+                .attr ('data-placement', 'top')
+                .attr ('nameid', function (d) { return d.nameid; })
+                .on ( {
+                  mouseover: function (evt) {
+                    var label = document.getElementById (evt.nameid);
+                    label.setAttributeNS (null, 'opacity', 1);
+                    this.setAttributeNS (null, 'opacity' , 0.5);
+                  },
+                  mouseout: function (evt) {
+                    var label = document.getElementById (evt.nameid);
+                    label.setAttributeNS (null, 'opacity', 0);
+                    this.setAttributeNS (null, 'opacity' , 1);
+                  }
+                })
+                ;
               var textboxes = svgContainer.selectAll("text")
                 .data (data)
                 .enter ()
@@ -303,6 +303,18 @@ sbapp
                 .attr ("id", function (d) { return d.nameid; } )
                 .attr ('opacity', 0)
                 .text (function (d) { return d.name; })
+                .on ( {
+                  mouseover: function (evt) {
+                    var rect = document.getElementById (evt.nameid + '_rect');
+                    rect.setAttributeNS (null, 'opacity', 0.5);
+                    this.setAttributeNS (null, 'opacity' , 1);
+                  },
+                  mouseout: function (evt) {
+                    var rect = document.getElementById (evt.nameid + '_rect');
+                    rect.setAttributeNS (null, 'opacity', 1);
+                    this.setAttributeNS (null, 'opacity' , 0);
+                  }
+                })
                 ;
             };
 
