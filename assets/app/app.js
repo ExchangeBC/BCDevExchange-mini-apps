@@ -163,6 +163,9 @@ sbapp
           controller   : function ($scope, $document, $window, lists) {
             var zz = this;
             zz.allcards = lists;
+            zz.mover = function () {
+              console.log ('moused over');
+            };
             var data = lists.data;
             _.each (data, function (list) {
               list.count = list.cards.length;
@@ -199,6 +202,7 @@ sbapp
             var namedStates = {};
             data.forEach (function (v) {
               var name = v.name.toLowerCase ();
+              v.nameid = name.replace (/[\W]+/g, '_');
               if (maincolours[name]) {
                 v.colour = maincolours[name];
                 namedStates[name] = v;
@@ -230,7 +234,6 @@ sbapp
 
 
 
-
              var linearScale = d3.scale.linear ()
               .domain ([0, total])
               .range ([0,x]);
@@ -245,10 +248,9 @@ sbapp
               });
 
               var svgContainer = d3.select ('div#chartid')
-              // var svgContainer = d3.select ('body')
-                .append ('a')
-                .attr ('href', boardUrl)
-                .attr ('target', '_blank')
+                // .append ('a')
+                // .attr ('href', boardUrl)
+                // .attr ('target', '_blank')
                 .append ('div')
                 // .classed ('svg-container', true)
                 .append ('svg')
@@ -265,18 +267,43 @@ sbapp
                                            .data(data)
                                            .enter()
                                            .append("rect");
+                                          ;
 //data-toggle="tooltip" data-placement="left" title="Tooltip on left"
               var rectangleAttributes = rectangles
-                                        .attr("x", function (d) { return d.left; })
-                                        .attr("y", 0)
-                                        .attr("height", 2000)
-                                        .attr("width", function (d) { return d.width; })
+                                        .attr ("x", function (d) { return d.left; })
+                                        .attr ("y", 0)
+                                        .attr ("height", 2000)
+                                        .attr ("width", function (d) { return d.width; })
                                         .style("fill", function(d) { return d.colour; })
                                         .attr ('data-toggle', 'tooltip')
                                         .attr ('title', function(d) { return d.name; })
                                         .attr ('data-placement', 'top')
-
+                                        .attr ('nameid', function (d) { return d.nameid; })
+                                        .on ( {
+                                          mouseover: function (evt) {
+                                            var el = document.getElementById (evt.nameid);
+                                            el.setAttributeNS (null, 'opacity', 1);
+                                            this.setAttributeNS (null, 'opacity' , 0.5);
+                                          },
+                                          mouseout: function (evt) {
+                                            var el = document.getElementById (evt.nameid);
+                                            el.setAttributeNS (null, 'opacity', 0);
+                                            this.setAttributeNS (null, 'opacity' , 1);
+                                          }
+                                        })
                                         ;
+              var textboxes = svgContainer.selectAll("text")
+                .data (data)
+                .enter ()
+                .append ("text")
+                ;
+              var textAttrs = textboxes
+                .attr ("x", function (d) { return d.left; })
+                .attr ("y", 15)
+                .attr ("id", function (d) { return d.nameid; } )
+                .attr ('opacity', 0)
+                .text (function (d) { return d.name; })
+                ;
             };
 
             angular.element($window).bind('resize', function () {
