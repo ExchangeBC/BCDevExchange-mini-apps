@@ -10,7 +10,7 @@ var nok = function (res) { return function (e) {res.json (e);}};
 module.exports = {
 
 	openIssues: function (req, res) {
-		// sails.log.debug("getCommits request body", req.param('widget'));
+		sails.log.debug("getCommits request body", req.param('widget'));
 		var widget = req.param('widget');
 		GithubService.getCommits(widget, function (err, data, headers) {
 			return res.json(data);
@@ -19,6 +19,7 @@ module.exports = {
 	issues: function (req, res) {
 		if (getCached) return res.json (myCached);
 		var program = req.params.program || '';
+		sails.log.debug ('gathering issues for program: '+program);
 		// console.log ('gathering issues for program: '+program);
 		ProgramService.getIssues (program)
 		.then (ProgramService.categorizeIssues)
@@ -35,6 +36,13 @@ module.exports = {
 	listdist: function (req, res) {
 		TrelloBoardService.getListDistribution (req.param ('board'))
 		.then (aok (res), nok (res));
+		.then (function (results) {
+			sails.log.debug ('about to send results');
+			res.json (results);
+		})
+		.catch (function (err) {
+			res.json (err);
+		});
 	}
 };
 

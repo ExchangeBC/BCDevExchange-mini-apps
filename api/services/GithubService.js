@@ -117,7 +117,7 @@ module.exports = {
     Widget.findOne({id: widgetId}).populate('module')
       .exec(function (err, widget) {
         if (widget) {
-          // sails.log.debug('finding first module:', widget.modules[0].id);
+          sails.log.debug('finding first module:', widget.modules[0].id);
           Module.findOne({id: widget.module.id}).populate('service')
             .exec(function (err, module) {
               if (module) {
@@ -139,7 +139,7 @@ module.exports = {
     Widget.findOne({id: widgetId}).populate('module')
       .exec(function (err, widget) {
         if (widget) {
-          // sails.log.debug('finding first module:', widget.modules);
+          sails.log.debug('finding first module:', widget.modules);
           Module.findOne({id: widget.module.id}).populate('service')
             .exec(function (err, module) {
               if (module) {
