@@ -51,23 +51,23 @@ var getAllPrograms = function () {
 
 
 	if (byGITHUB) {
-		sails.log.debug("Loading all program configurations from GitHub...");
+		sails.log.verbose("Loading all program configurations from GitHub...");
 		return new Promise (function (resolve, reject) {
 			client
 			.repo (configuration.programListingPath)
 			.contents (configuration.programListingYAML, configuration.programListingBranch, function (err, body, headers) {
 				var programYaml;
-				sails.log.debug ('getAllPrograms: complete, now parsing yaml');
+				sails.log.verbose ('getAllPrograms: complete, now parsing yaml');
 				try { programYaml = yaml.safeLoad (new Buffer (body.content, 'base64').toString('ascii')); }
 				catch (e) { return reject (new Error ('Error while parsing yaml program file '+e.message)); }
-				sails.log.debug ('finished parsing yaml');
+				sails.log.verbose ('finished parsing yaml');
 				return resolve (programYaml);
 			});
 		});
 	} else {
 		return new Promise (function (resolve, reject) {
 			var request = require ('request');
-			 sails.log.debug ('issuing request to ',configuration.programListingUrl);
+			 sails.log.verbose ('issuing request to ',configuration.programListingUrl);
 			request({
 				url    : configuration.programListingUrl,
 				method : 'GET',
@@ -78,17 +78,17 @@ var getAllPrograms = function () {
 		  		}
 			}, function (err, res, body) {
 				if (err) {
-					sails.log.debug ('caught error ', err);
+					sails.log.verbose ('caught error ', err);
 					err.fullpath = configuration.programListingUrl;
 					reject (err);
 				}
 				else if (res.statusCode != 200) {
-					sails.log.debug ('caught non 200 response ');
+					sails.log.verbose ('caught non 200 response ');
 					reject (new Error (configuration.programListingUrl+': '+res.statusCode+' '+body));
 				}
 				else {
-					sails.log.debug ('getAllPrograms: complete');
-					sails.log.debug (configuration.programListingUrl+': '+res.statusCode+' ');
+					sails.log.verbose ('getAllPrograms: complete');
+					sails.log.verbose (configuration.programListingUrl+': '+res.statusCode+' ');
 					resolve (JSON.parse(body));
 				}
 			});
@@ -106,13 +106,13 @@ exports.getAllPrograms = getAllPrograms;
 // -------------------------------------------------------------------------
 var getPrograms = function (title) {
 	title = title || '';
-	sails.log.debug ('getPrograms: start');
+	sails.log.verbose ('getPrograms: start');
 	return getAllPrograms ()
 	.then (function (programYaml) {
-		sails.log.debug ('getPrograms: complete, looking for title:', title);
+		sails.log.verbose ('getPrograms: complete, looking for title:', title);
 		return programYaml.filter (function (el) {
 			var useme = ( (el.visible === 'yes' || el.visible == true) && (!title || el.title === title));
-			sails.log.debug ('title=', el.title, 'visible=', el.visible, 'useme=', useme);
+			sails.log.verbose ('title=', el.title, 'visible=', el.visible, 'useme=', useme);
 			return useme;
 		});
 	});
@@ -131,15 +131,15 @@ var getIssuesForProgram = function (program, opts) {
 		//
 		// Get all states, but only those with a label of help wanted
 		//
-		sails.log.debug ('getting issues from github for ',program.title);
+		sails.log.verbose ('getting issues from github for ',program.title);
 		// mrepo.issues ({state:'all', per_page: 500, page:1}, function (err, issues) {
 		mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
 			if (err) {
-				sails.log.debug ('Error: ',program.title, ' ', repo, ' ', err.message);
+				sails.log.verbose ('Error: ',program.title, ' ', repo, ' ', err.message);
 				resolve ([]);
 			}
 			else if (issues) {
-				sails.log.debug ('Number of issues:',program.title, issues.length);
+				sails.log.verbose ('Number of issues:',program.title, issues.length);
 				resolve (issues.map (function (i) {
 					i.program = program.title;
 					return i;
@@ -173,8 +173,8 @@ exports.getIssuesForPrograms = function (programs, opts) {
 };
 var getIssuesForPrograms = function (opts) {
 	return function (programs) {
-		sails.log.debug ('number of programs: ',programs.length);
-		sails.log.debug ('getIssuesForPrograms: start');
+		sails.log.verbose ('number of programs: ',programs.length);
+		sails.log.verbose ('getIssuesForPrograms: start');
 		return exports.getIssuesForPrograms (programs, opts);
 	};
 };
@@ -188,7 +188,7 @@ exports.getIssues = function (programName, opts) {
 		getPrograms (programName)
 		.then (getIssuesForPrograms (opts))
 		.then (function (arrayofarrays) {
-			sails.log.debug ('getIssuesForPrograms: complete');
+			sails.log.verbose ('getIssuesForPrograms: complete');
 			return arrayofarrays.reduce (function (prevArray, currArray) {
 				prevArray = currArray.reduce (function (p, element) {
 					p.push (element);
@@ -220,17 +220,17 @@ exports.getIssues = function (programName, opts) {
 //
 // -------------------------------------------------------------------------
 exports.categorizeIssues = function (issues) {
-	sails.log.debug ('getIssuesForPrograms: start: ',issues.length);
+	sails.log.verbose ('getIssuesForPrograms: start: ',issues.length);
 	var ret = {open:[],closed:[],inprogress:[],blocked:[]};
 	_.each (issues, function (i) {
-		sails.log.debug ('issue: ', i);
+		sails.log.verbose ('issue: ', i);
 		//
 		// get the lowercase label names and state
 		//
 		var labels = i.labels.map (function (l) {return l.name.toLowerCase();});
 		var state = i.state.toLowerCase();
 		var result;
-		sails.log.debug ('state labels: ', state, labels);
+		sails.log.verbose ('state labels: ', state, labels);
 		//
 		// decide if closed, blocked, in progress, or open, all disjoint sets
 		//
@@ -249,10 +249,10 @@ exports.categorizeIssues = function (issues) {
 			else if ((result = label.name.match (/^skill:(.*)$/))) i.skill.push (result[1]);
 			else if ((result = label.name.match (/^earn:(.*)$/))) i.earn.push (result[1]);
 		});
-		sails.log.debug (i.skill, i.earn);
-		sails.log.debug (Array(50).join('-'));
+		sails.log.verbose (i.skill, i.earn);
+		sails.log.verbose (Array(50).join('-'));
 	});
-	sails.log.debug (ret);
+	sails.log.verbose (ret);
 	return ret;
 };
 
