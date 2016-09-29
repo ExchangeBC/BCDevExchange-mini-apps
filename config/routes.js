@@ -37,6 +37,8 @@ limitations under the License.
  * http://sailsjs.org/#!/documentation/concepts/Routes/RouteTargetSyntax.html
  */
 
+var cache = require('apicache').middleware;
+
 module.exports.routes = {
 
   /***************************************************************************
@@ -62,8 +64,8 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  '/api/issues/:program?'      : 'AppsController.issues',
-  '/api/cardsforboard/:board?' : 'AppsController.cards',
-  '/api/listsforboard/:board?' : 'AppsController.lists',
-  '/api/listdist/:board?'      : 'AppsController.listdist',
+  '/api/issues/:program?'      : [cache('5 minutes'), 'AppsController.issues'],
+  '/api/cardsforboard/:board?' : [cache('5 minutes'), 'AppsController.cards'],
+  '/api/listsforboard/:board?' : [cache('5 minutes'),'AppsController.lists'],
+  '/api/listdist/:board?'      : [cache('5 minutes'), 'AppsController.listdist']
 };

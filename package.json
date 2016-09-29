@@ -29,6 +29,7 @@
     "angular-touch": "^1.5.3",
     "angular-ui-router": "^0.2.18",
     "ansi-styles": "^2.1.0",
+    "apicache": "^0.2.2",
     "bootstrap": "^3.3.7",
     "ejs": "2.3.4",
     "include-all": "~0.1.6",
