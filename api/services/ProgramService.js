@@ -67,7 +67,7 @@ var getAllPrograms = function () {
 	} else {
 		return new Promise (function (resolve, reject) {
 			var request = require ('request');
-			 sails.log.verbose ('issuing request to ',configuration.programListingUrl);
+			 sails.log.debug ('retrieving program list from: ',configuration.programListingUrl);
 			request({
 				url    : configuration.programListingUrl,
 				method : 'GET',
@@ -78,16 +78,16 @@ var getAllPrograms = function () {
 		  		}
 			}, function (err, res, body) {
 				if (err) {
-					sails.log.verbose ('caught error ', err);
+					sails.log.error ('caught error ', err);
 					err.fullpath = configuration.programListingUrl;
 					reject (err);
 				}
 				else if (res.statusCode != 200) {
-					sails.log.verbose ('caught non 200 response ');
+					sails.log.error ('caught non 200 response ');
 					reject (new Error (configuration.programListingUrl+': '+res.statusCode+' '+body));
 				}
 				else {
-					sails.log.verbose ('getAllPrograms: complete');
+					sails.log.debug ('retrieved all programs.');
 					sails.log.verbose (configuration.programListingUrl+': '+res.statusCode+' ');
 					resolve (JSON.parse(body));
 				}
@@ -125,21 +125,24 @@ exports.getPrograms = getPrograms;
 // -------------------------------------------------------------------------
 var getIssuesForProgram = function (program, opts) {
 	return new Promise (function (resolve, reject) {
-		if (!program.githubUrl || program.githubUrl === 'undefined') return resolve ([]);
+		if (!program.githubUrl || program.githubUrl === 'undefined') {
+			sails.log.debug("Skipping GitHub issues for program: ", program.title);
+			return resolve ([]);
+		}
 		var repo = program.githubUrl.replace (/^.*github\.com\//, '');
 		var mrepo = client.repo (repo);
 		//
 		// Get all states, but only those with a label of help wanted
 		//
-		sails.log.verbose ('getting issues from github for ',program.title);
+		sails.log.debug ('getting issues from github for ',program.title);
 		// mrepo.issues ({state:'all', per_page: 500, page:1}, function (err, issues) {
 		mrepo.issues ({state:'all', labels:'help wanted', per_page: 500, page:1}, function (err, issues) {
 			if (err) {
-				sails.log.verbose ('Error: ',program.title, ' ', repo, ' ', err.message);
+				sails.log.error('Error: ',program.title, ' ', repo, ' ', err.message);
 				resolve ([]);
 			}
 			else if (issues) {
-				sails.log.verbose ('Number of issues:',program.title, issues.length);
+				sails.log.debug('Number of issues:',program.title, issues.length);
 				resolve (issues.map (function (i) {
 					i.program = program.title;
 					return i;
