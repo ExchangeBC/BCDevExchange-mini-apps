@@ -18,7 +18,7 @@ If new npm modules are required you may have to re-run the build step in order t
 The application can be promoted across logical environments using ImageStreamTags.  Specifically - to promote (trigger deployment) of the latest version of the app into prod, you woudl do the following in the appropriate OpenShift project :
 
 ```
-oc tag bcdevexchange-site:latest bcdevexchange-site:prod
+oc tag bcdevexchange-mini-apps:latest:latest bcdevexchange-mini-apps:latest:prod
 ```
 
 
