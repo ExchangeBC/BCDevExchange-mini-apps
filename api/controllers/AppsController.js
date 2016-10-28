@@ -10,7 +10,7 @@ var aok = function (res) {
 
 var nok = function (res) {
     return function (e) {
-        sails.log.verbose ('result = "error". about to send results');
+        sails.log.debug ('result = "error". about to send results');
         res.json (e);
     }
 };
@@ -30,7 +30,8 @@ module.exports = {
         sails.log.verbose ('gathering issues for program: ' + program);
         ProgramService.getIssues (program)
             .then (ProgramService.categorizeIssues)
-            .then (aok(res), nok(res));
+            .then (aok(res), nok(res))
+            .catch(nok(res));
     },
     cards: function (req, res) {
         TrelloBoardService.getCardsForBoard (req.param ('board'))
