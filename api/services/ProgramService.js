@@ -163,17 +163,17 @@ exports.getIssuesForPrograms = function (programs, opts) {
 	//
 	// sequential
 	//
-	return programs.reduce (function (p, program) {
-		return p.then (function () {
-			return getIssuesForProgram (program, opts);
-		});
-	}, Promise.resolve ());
+	// return programs.reduce (function (p, program) {
+	// 	return p.then (function () {
+	// 		return getIssuesForProgram (program, opts);
+	// 	});
+	// }, Promise.resolve ());
 	//
 	// parallel
 	//
-	// return Promise.all (programs.map (function (program) {
-	// 	return getIssuesForProgram (program, opts);
-	// }));
+	return Promise.all (programs.map (function (program) {
+			return getIssuesForProgram (program, opts);
+	}));
 };
 var getIssuesForPrograms = function (opts) {
 	return function (programs) {
