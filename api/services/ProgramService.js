@@ -129,6 +129,7 @@ var getIssuesForProgram = function (program, opts) {
 			sails.log.debug("Skipping GitHub issues for program: ", program.title);
 			return resolve ([]);
 		}
+		console.log ((program.title+'..........................................................').substr(0,50)+'...'+program.githubUrl);
 		var repo = program.githubUrl.replace (/^.*github\.com\//, '');
 		var mrepo = client.repo (repo);
 		//
